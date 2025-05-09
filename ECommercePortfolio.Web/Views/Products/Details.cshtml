@@ -1,0 +1,53 @@
+<!-- ECommercePortfolio.Web/Views/Products/Details.cshtml -->
+@model ECommercePortfolio.Web.Models.ProductViewModel
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Products" asp-action="Index">Products</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Products" asp-action="Index" asp-route-categoryId="@Model.CategoryId">@Model.CategoryName</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
+    </ol>
+</nav>
+
+<div class="row">
+    <div class="col-md-5">
+        @if (!string.IsNullOrEmpty(Model.ImageUrl))
+        {
+            <img src="@Model.ImageUrl" class="img-fluid" alt="@Model.Name">
+        }
+        else
+        {
+            <img src="~/images/placeholder.png" class="img-fluid" alt="Product image placeholder">
+        }
+    </div>
+    <div class="col-md-7">
+        <h1>@Model.Name</h1>
+        <p class="text-muted mb-3">Category: @Model.CategoryName</p>
+
+        <h4 class="text-primary mb-3">$@Model.Price.ToString("0.00")</h4>
+
+        <p class="lead">@Model.Description</p>
+
+        <div class="alert @(Model.StockQuantity > 0 ? "alert-success" : "alert-danger")">
+            @if (Model.StockQuantity > 0)
+            {
+                <i class="fas fa-check-circle"></i>
+                <span>In Stock (@Model.StockQuantity available)</span>
+            }
+            else
+            {
+                <i class="fas fa-exclamation-circle"></i>
+                <span>Out of Stock</span>
+            }
+        </div>
+
+        <a asp-controller="Products" asp-action="Index" class="btn btn-outline-secondary">
+            <i class="fas fa-arrow-left"></i> Back to Products
+        </a>
+    </div>
+</div>

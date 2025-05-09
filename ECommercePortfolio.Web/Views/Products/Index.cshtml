@@ -1,0 +1,139 @@
+<!-- ECommercePortfolio.Web/Views/Products/Index.cshtml -->
+@model IEnumerable<ECommercePortfolio.Web.Models.ProductViewModel>
+
+@{
+    ViewData["Title"] = "Products";
+}
+
+<div class="row mb-3">
+    <div class="col-md-6">
+        <h1>Products</h1>
+    </div>
+    <div class="col-md-6 text-right">
+        <form asp-action="Index" method="get" class="form-inline justify-content-end">
+            <div class="input-group">
+                <input type="text" name="search" class="form-control" placeholder="Search products..." value="@ViewData["CurrentFilter"]">
+                <div class="input-group-append">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card mb-4">
+            <div class="card-header">
+                Categories
+            </div>
+            <div class="list-group list-group-flush">
+                <a asp-action="Index" class="list-group-item list-group-item-action @(ViewData["CurrentCategory"] == null ? "active" : "")">
+                    All Categories
+                </a>
+                @foreach (var category in ViewBag.Categories)
+                {
+                    <a asp-action="Index" asp-route-categoryId="@category.Id" class="list-group-item list-group-item-action @(ViewData["CurrentCategory"]?.ToString() == category.Id.ToString() ? "active" : "")">
+                        @category.Name
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            @foreach (var product in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        @if (!string.IsNullOrEmpty(product.ImageUrl))
+                        {
+                            <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name">
+                        }
+                        else
+                        {
+                            <img src="~/images/placeholder.png" class="card-img-top" alt="Product image placeholder">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@product.Name</h5>
+                            <p class="card-text text-muted">@product.CategoryName</p>
+                            <p class="card-text">@product.Description</p>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="h5 mb-0">$@product.Price.ToString("0.00")</span>
+                                <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-primary btn-sm">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info">
+                No products found matching your criteria.
+            </div>
+        }
+
+        <div class="d-flex justify-content-center">
+            <nav>
+                <ul class="pagination">
+                    @if (ViewBag.PreviousPage)
+                    {
+                        <li class="page-item">
+                            <a asp-action="Index"
+                               asp-route-page="@(ViewBag.CurrentPage - 1)"
+                               asp-route-search="@ViewData["CurrentFilter"]"
+                               asp-route-categoryId="@ViewData["CurrentCategory"]"
+                               class="page-link">
+                                Previous
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item disabled">
+                            <span class="page-link">Previous</span>
+                        </li>
+                    }
+
+                    @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                    {
+                        <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                            <a asp-action="Index"
+                               asp-route-page="@i"
+                               asp-route-search="@ViewData["CurrentFilter"]"
+                               asp-route-categoryId="@ViewData["CurrentCategory"]"
+                               class="page-link">
+                                @i
+                            </a>
+                        </li>
+                    }
+
+                    @if (ViewBag.NextPage)
+                    {
+                        <li class="page-item">
+                            <a asp-action="Index"
+                               asp-route-page="@(ViewBag.CurrentPage + 1)"
+                               asp-route-search="@ViewData["CurrentFilter"]"
+                               asp-route-categoryId="@ViewData["CurrentCategory"]"
+                               class="page-link">
+                                Next
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="page-item disabled">
+                            <span class="page-link">Next</span>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

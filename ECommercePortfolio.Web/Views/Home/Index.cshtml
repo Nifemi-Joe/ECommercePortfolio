@@ -1,0 +1,39 @@
+<!-- ECommercePortfolio.Web/Views/Home/Index.cshtml -->
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to E-Commerce Dashboard</h1>
+    <p class="lead">A showcase project demonstrating ASP.NET Core development skills with C#, SQL, and best practices.</p>
+    <hr class="my-4">
+    <p>This application includes user authentication, product management, and reporting features.</p>
+    <a class="btn btn-primary btn-lg" asp-controller="Products" asp-action="Index" role="button">Browse Products</a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-users"></i> User Authentication</h5>
+                <p class="card-text">Secure login system with role-based permissions using ASP.NET Core Identity.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-database"></i> Product Management</h5>
+                <p class="card-text">Complete CRUD operations for products and categories with Entity Framework Core.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title"><i class="fas fa-chart-bar"></i> Dashboard & Reporting</h5>
+                <p class="card-text">Interactive charts and reports for sales and inventory analysis.</p>
+            </div>
+        </div>
+    </div>
+</div>
