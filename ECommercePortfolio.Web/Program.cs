@@ -5,7 +5,7 @@ using ECommercePortfolio.Infrastructure.Data;
 using ECommercePortfolio.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.EntityFrameworkCore.SqlServer;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -16,7 +16,7 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
     throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseNpgsql(connectionString));
 
 // For local development/demo, you can use SQLite instead of SQL Server:
 // builder.Services.AddDbContext<ApplicationDbContext>(options =>

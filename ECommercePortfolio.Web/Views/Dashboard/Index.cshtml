@@ -1,0 +1,332 @@
+@model ECommercePortfolio.Web.Models.DashboardViewModel
+@using ECommercePortfolio.Core.Entities
+@{
+    ViewData["Title"] = "Dashboard";
+    var salesChartData = new
+    {
+        labels = Model.MonthlySales.Select(x => x.Month).ToArray(),
+        datasets = new[]
+        {
+            new {
+                label = "Sales ($)",
+                data = Model.MonthlySales.Select(x => x.Amount).ToArray(),
+                backgroundColor = "rgba(54, 162, 235, 0.2)",
+                borderColor = "rgba(54, 162, 235, 1)",
+                borderWidth = 1
+            }
+        }
+    };
+
+    var categoryChartData = new
+    {
+        labels = Model.CategorySales.Select(x => x.CategoryName).ToArray(),
+        datasets = new[]
+        {
+            new {
+                label = "Sales by Category ($)",
+                data = Model.CategorySales.Select(x => x.Amount).ToArray(),
+                backgroundColor = new[] {
+                    "rgba(255, 99, 132, 0.2)",
+                    "rgba(54, 162, 235, 0.2)",
+                    "rgba(255, 206, 86, 0.2)",
+                    "rgba(75, 192, 192, 0.2)",
+                    "rgba(153, 102, 255, 0.2)"
+                },
+                borderColor = new[] {
+                    "rgba(255, 99, 132, 1)",
+                    "rgba(54, 162, 235, 1)",
+                    "rgba(255, 206, 86, 1)",
+                    "rgba(75, 192, 192, 1)",
+                    "rgba(153, 102, 255, 1)"
+                },
+                borderWidth = 1
+            }
+        }
+    };
+}
+
+<div class="container-fluid px-4">
+    <h1 class="mt-4">Dashboard</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item active">Dashboard</li>
+    </ol>
+
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-primary text-white mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-0">Total Sales</h5>
+                            <p class="mb-0 small">Last 30 days</p>
+                        </div>
+                        <h2 class="mb-0">$@Model.TotalSales.ToString("N2")</h2>
+                    </div>
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="@Url.Action("Index", "Orders")">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning text-white mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-0">Total Orders</h5>
+                            <p class="mb-0 small">Last 30 days</p>
+                        </div>
+                        <h2 class="mb-0">@Model.TotalOrders</h2>
+                    </div>
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="@Url.Action("Index", "Orders")">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-success text-white mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-0">Products</h5>
+                            <p class="mb-0 small">Total count</p>
+                        </div>
+                        <h2 class="mb-0">@Model.TotalProducts</h2>
+                    </div>
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="@Url.Action("Index", "Products")">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card bg-danger text-white mb-4">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h5 class="mb-0">Inventory Value</h5>
+                            <p class="mb-0 small">Total value</p>
+                        </div>
+                        <h2 class="mb-0">$@Model.TotalInventoryValue.ToString("N2")</h2>
+                    </div>
+                </div>
+                <div class="card-footer d-flex align-items-center justify-content-between">
+                    <a class="small text-white stretched-link" href="@Url.Action("Index", "Products")">View Details</a>
+                    <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-bar me-1"></i>
+                    Monthly Sales
+                </div>
+                <div class="card-body">
+                    <canvas id="monthlySalesChart" width="100%" height="40"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-chart-pie me-1"></i>
+                    Sales by Category
+                </div>
+                <div class="card-body">
+                    <canvas id="categorySalesChart" width="100%" height="40"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Latest Products
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="latestProductsTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var product in Model.LatestProducts)
+                                {
+                                    <tr>
+                                        <td>@product.Name</td>
+                                        <td>@product.CategoryName</td>
+                                        <td>$@product.Price.ToString("N2")</td>
+                                        <td>@product.StockQuantity</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-shopping-cart me-1"></i>
+                    Recent Orders
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="recentOrdersTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Order #</th>
+                                    <th>Date</th>
+                                    <th>Customer</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var order in Model.RecentOrders)
+                                {
+                                    <tr>
+                                        <td>@order.OrderNumber</td>
+                                        <td>@order.OrderDate.ToString("MM/dd/yyyy")</td>
+                                        <td>@order.CustomerName</td>
+                                        <td>$@order.TotalAmount.ToString("N2")</td>
+                                        <td>
+                                            @{
+                                                string badgeClass = order.Status switch
+                                                {
+                                                    OrderStatus.Pending => "bg-warning",
+                                                    OrderStatus.Processing => "bg-info",
+                                                    OrderStatus.Shipped => "bg-primary",
+                                                    OrderStatus.Delivered => "bg-success",
+                                                    OrderStatus.Cancelled => "bg-danger",
+                                                    _ => "bg-secondary"
+                                                };
+                                            }
+                                            <span class="badge @badgeClass">@order.Status.ToString()</span>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-exclamation-triangle me-1"></i>
+                    Low Stock Products
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="lowStockTable" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var product in Model.LowStockProducts)
+                                {
+                                    <tr>
+                                        <td>@product.Name</td>
+                                        <td>@product.CategoryName</td>
+                                        <td>$@product.Price.ToString("N2")</td>
+                                        <td><span class="badge bg-danger">@product.StockQuantity</span></td>
+                                        <td>
+                                            <a href="@Url.Action("Edit", "Products", new { id = product.Id })" class="btn btn-sm btn-primary">Update Stock</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Load charts when the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Monthly Sales Chart
+            var monthlySalesCtx = document.getElementById('monthlySalesChart').getContext('2d');
+            var monthlySalesChart = new Chart(monthlySalesCtx, {
+                type: 'bar',
+                data: @Html.Raw(Json.Serialize(salesChartData)),
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Category Sales Chart
+            var categorySalesCtx = document.getElementById('categorySalesChart').getContext('2d');
+            var categorySalesChart = new Chart(categorySalesCtx, {
+                type: 'pie',
+                data: @Html.Raw(Json.Serialize(categoryChartData)),
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // Initialize DataTables
+            $('#latestProductsTable').DataTable({
+                responsive: true,
+                order: [[0, 'asc']],
+                pageLength: 5,
+                lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]]
+            });
+
+            $('#recentOrdersTable').DataTable({
+                responsive: true,
+                order: [[1, 'desc']],
+                pageLength: 5,
+                lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]]
+            });
+
+            $('#lowStockTable').DataTable({
+                responsive: true,
+                order: [[3, 'asc']],
+                pageLength: 5,
+                lengthMenu: [[5, 10, 25, -1], [5, 10, 25, "All"]]
+            });
+        });
+    </script>
+}

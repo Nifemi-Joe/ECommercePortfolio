@@ -1,0 +1,13 @@
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/obj/Debug/net9.0/ECommercePortfolio.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/obj/Debug/net9.0/ECommercePortfolio.Core.AssemblyInfoInputs.cache
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/obj/Debug/net9.0/ECommercePortfolio.Core.AssemblyInfo.cs
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/obj/Debug/net9.0/ECommercePortfolio.Core.csproj.CoreCompileInputs.cache
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/obj/Debug/net9.0/ECommercePortfolio.Core.sourcelink.json
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/obj/Debug/net9.0/ECommercePortfolio.Core.csproj.AssemblyReference.cache
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/bin/Debug/net9.0/ECommercePortfolio.Core.deps.json
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/bin/Debug/net9.0/ECommercePortfolio.Core.dll
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/bin/Debug/net9.0/ECommercePortfolio.Core.pdb
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/obj/Debug/net9.0/ECommercePortfolio.Core.dll
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/obj/Debug/net9.0/refint/ECommercePortfolio.Core.dll
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/obj/Debug/net9.0/ECommercePortfolio.Core.pdb
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Core/obj/Debug/net9.0/ref/ECommercePortfolio.Core.dll

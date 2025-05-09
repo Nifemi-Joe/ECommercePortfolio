@@ -1,0 +1,16 @@
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/obj/Debug/net9.0/ECommercePortfolio.Infrastructure.csproj.AssemblyReference.cache
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/obj/Debug/net9.0/ECommercePortfolio.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/obj/Debug/net9.0/ECommercePortfolio.Infrastructure.AssemblyInfoInputs.cache
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/obj/Debug/net9.0/ECommercePortfolio.Infrastructure.AssemblyInfo.cs
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/obj/Debug/net9.0/ECommercePortfolio.Infrastructure.csproj.CoreCompileInputs.cache
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/obj/Debug/net9.0/ECommercePortfolio.Infrastructure.sourcelink.json
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/bin/Debug/net9.0/ECommercePortfolio.Infrastructure.deps.json
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/bin/Debug/net9.0/ECommercePortfolio.Infrastructure.dll
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/bin/Debug/net9.0/ECommercePortfolio.Infrastructure.pdb
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/bin/Debug/net9.0/ECommercePortfolio.Core.dll
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/bin/Debug/net9.0/ECommercePortfolio.Core.pdb
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/obj/Debug/net9.0/ECommerc.614CB3E9.Up2Date
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/obj/Debug/net9.0/ECommercePortfolio.Infrastructure.dll
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/obj/Debug/net9.0/refint/ECommercePortfolio.Infrastructure.dll
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/obj/Debug/net9.0/ECommercePortfolio.Infrastructure.pdb
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Infrastructure/obj/Debug/net9.0/ref/ECommercePortfolio.Infrastructure.dll

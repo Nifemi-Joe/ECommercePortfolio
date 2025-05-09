@@ -1,0 +1,1382 @@
+{
+  "Version": 1,
+  "Hash": "0cMoTCVAuZCJ5JUxE89li4DDz9pcY+p7ZEe+27Ys5Wc=",
+  "Source": "ECommercePortfolio.Web",
+  "BasePath": "_content/ECommercePortfolio.Web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "ECommercePortfolio.Web/wwwroot",
+      "Source": "ECommercePortfolio.Web",
+      "ContentRoot": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/",
+      "BasePath": "_content/ECommercePortfolio.Web",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/f22875xzwg-b5x1fnv6v3.gz",
+      "SourceId": "ECommercePortfolio.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/ECommercePortfolio.Web",
+      "RelativePath": "js/dashboard#[.{fingerprint=b5x1fnv6v3}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/dashboard.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "05b8eojw78",
+      "Integrity": "ZEjp03HmXIsoE5Lq+98Wxw1BntX5f5XLcLVoEVJkV2I=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/dashboard.js"
+    },
+    {
+      "Identity": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-b2vltszhsf.gz",
+      "SourceId": "ECommercePortfolio.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/ECommercePortfolio.Web",
+      "RelativePath": "js/site#[.{fingerprint=b2vltszhsf}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/site.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "lvx55bij13",
+      "Integrity": "P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/site.js"
+    },
+    {
+      "Identity": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-rkaa844an7.gz",
+      "SourceId": "ECommercePortfolio.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/ECommercePortfolio.Web",
+      "RelativePath": "css/site#[.{fingerprint=rkaa844an7}]?.css.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/css/site.css",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "7ayfiv6ctn",
+      "Integrity": "sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/css/site.css"
+    },
+    {
+      "Identity": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/ymziqyjz0l-v6riygzsbi.gz",
+      "SourceId": "ECommercePortfolio.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/",
+      "BasePath": "_content/ECommercePortfolio.Web",
+      "RelativePath": "js/product-management#[.{fingerprint=v6riygzsbi}]?.js.gz",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/product-management.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "Fingerprint": "hhui4iva85",
+      "Integrity": "Kxkv4NnNLimfF+lfDMg3vHB5hOnRGSWu/K26OwVFuTo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/product-management.js"
+    },
+    {
+      "Identity": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/css/site.css",
+      "SourceId": "ECommercePortfolio.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/",
+      "BasePath": "_content/ECommercePortfolio.Web",
+      "RelativePath": "css/site#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "rkaa844an7",
+      "Integrity": "9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/site.css"
+    },
+    {
+      "Identity": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/dashboard.js",
+      "SourceId": "ECommercePortfolio.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/",
+      "BasePath": "_content/ECommercePortfolio.Web",
+      "RelativePath": "js/dashboard#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "b5x1fnv6v3",
+      "Integrity": "D/mpwsgOPTgHomFLQBMwBrVGuKdl/J2BoTJgrM+Bbdo=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/dashboard.js"
+    },
+    {
+      "Identity": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/product-management.js",
+      "SourceId": "ECommercePortfolio.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/",
+      "BasePath": "_content/ECommercePortfolio.Web",
+      "RelativePath": "js/product-management#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "v6riygzsbi",
+      "Integrity": "2dM/s/JyObnuJyHuk186FT1En8cA6zCLjIRQ4PS9Usw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/product-management.js"
+    },
+    {
+      "Identity": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/site.js",
+      "SourceId": "ECommercePortfolio.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/",
+      "BasePath": "_content/ECommercePortfolio.Web",
+      "RelativePath": "js/site#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "b2vltszhsf",
+      "Integrity": "gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/site.js"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "css/site.css",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-rkaa844an7.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000921658986"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1084"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:46:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/css/site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3147"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:46:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.css.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-rkaa844an7.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1084"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:46:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.rkaa844an7.css",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-rkaa844an7.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000921658986"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1084"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:46:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rkaa844an7"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.rkaa844an7.css",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/css/site.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3147"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:46:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rkaa844an7"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8="
+        }
+      ]
+    },
+    {
+      "Route": "css/site.rkaa844an7.css.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-rkaa844an7.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1084"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:46:09 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "rkaa844an7"
+        },
+        {
+          "Name": "label",
+          "Value": "css/site.css.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY="
+        }
+      ]
+    },
+    {
+      "Route": "js/dashboard.b5x1fnv6v3.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/f22875xzwg-b5x1fnv6v3.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001060445387"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "942"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZEjp03HmXIsoE5Lq+98Wxw1BntX5f5XLcLVoEVJkV2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"D/mpwsgOPTgHomFLQBMwBrVGuKdl/J2BoTJgrM+Bbdo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "b5x1fnv6v3"
+        },
+        {
+          "Name": "label",
+          "Value": "js/dashboard.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-D/mpwsgOPTgHomFLQBMwBrVGuKdl/J2BoTJgrM+Bbdo="
+        }
+      ]
+    },
+    {
+      "Route": "js/dashboard.b5x1fnv6v3.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/dashboard.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3222"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"D/mpwsgOPTgHomFLQBMwBrVGuKdl/J2BoTJgrM+Bbdo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "b5x1fnv6v3"
+        },
+        {
+          "Name": "label",
+          "Value": "js/dashboard.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-D/mpwsgOPTgHomFLQBMwBrVGuKdl/J2BoTJgrM+Bbdo="
+        }
+      ]
+    },
+    {
+      "Route": "js/dashboard.b5x1fnv6v3.js.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/f22875xzwg-b5x1fnv6v3.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "942"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZEjp03HmXIsoE5Lq+98Wxw1BntX5f5XLcLVoEVJkV2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "b5x1fnv6v3"
+        },
+        {
+          "Name": "label",
+          "Value": "js/dashboard.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZEjp03HmXIsoE5Lq+98Wxw1BntX5f5XLcLVoEVJkV2I="
+        }
+      ]
+    },
+    {
+      "Route": "js/dashboard.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/f22875xzwg-b5x1fnv6v3.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001060445387"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "942"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZEjp03HmXIsoE5Lq+98Wxw1BntX5f5XLcLVoEVJkV2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"D/mpwsgOPTgHomFLQBMwBrVGuKdl/J2BoTJgrM+Bbdo=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-D/mpwsgOPTgHomFLQBMwBrVGuKdl/J2BoTJgrM+Bbdo="
+        }
+      ]
+    },
+    {
+      "Route": "js/dashboard.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/dashboard.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3222"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"D/mpwsgOPTgHomFLQBMwBrVGuKdl/J2BoTJgrM+Bbdo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-D/mpwsgOPTgHomFLQBMwBrVGuKdl/J2BoTJgrM+Bbdo="
+        }
+      ]
+    },
+    {
+      "Route": "js/dashboard.js.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/f22875xzwg-b5x1fnv6v3.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "942"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"ZEjp03HmXIsoE5Lq+98Wxw1BntX5f5XLcLVoEVJkV2I=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-ZEjp03HmXIsoE5Lq+98Wxw1BntX5f5XLcLVoEVJkV2I="
+        }
+      ]
+    },
+    {
+      "Route": "js/product-management.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/ymziqyjz0l-v6riygzsbi.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001022494888"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "977"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Kxkv4NnNLimfF+lfDMg3vHB5hOnRGSWu/K26OwVFuTo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"2dM/s/JyObnuJyHuk186FT1En8cA6zCLjIRQ4PS9Usw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2dM/s/JyObnuJyHuk186FT1En8cA6zCLjIRQ4PS9Usw="
+        }
+      ]
+    },
+    {
+      "Route": "js/product-management.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/product-management.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2917"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2dM/s/JyObnuJyHuk186FT1En8cA6zCLjIRQ4PS9Usw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2dM/s/JyObnuJyHuk186FT1En8cA6zCLjIRQ4PS9Usw="
+        }
+      ]
+    },
+    {
+      "Route": "js/product-management.js.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/ymziqyjz0l-v6riygzsbi.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "977"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Kxkv4NnNLimfF+lfDMg3vHB5hOnRGSWu/K26OwVFuTo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Kxkv4NnNLimfF+lfDMg3vHB5hOnRGSWu/K26OwVFuTo="
+        }
+      ]
+    },
+    {
+      "Route": "js/product-management.v6riygzsbi.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/ymziqyjz0l-v6riygzsbi.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001022494888"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "977"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Kxkv4NnNLimfF+lfDMg3vHB5hOnRGSWu/K26OwVFuTo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"2dM/s/JyObnuJyHuk186FT1En8cA6zCLjIRQ4PS9Usw=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "v6riygzsbi"
+        },
+        {
+          "Name": "label",
+          "Value": "js/product-management.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2dM/s/JyObnuJyHuk186FT1En8cA6zCLjIRQ4PS9Usw="
+        }
+      ]
+    },
+    {
+      "Route": "js/product-management.v6riygzsbi.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/product-management.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2917"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2dM/s/JyObnuJyHuk186FT1En8cA6zCLjIRQ4PS9Usw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "v6riygzsbi"
+        },
+        {
+          "Name": "label",
+          "Value": "js/product-management.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2dM/s/JyObnuJyHuk186FT1En8cA6zCLjIRQ4PS9Usw="
+        }
+      ]
+    },
+    {
+      "Route": "js/product-management.v6riygzsbi.js.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/ymziqyjz0l-v6riygzsbi.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "977"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Kxkv4NnNLimfF+lfDMg3vHB5hOnRGSWu/K26OwVFuTo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:28 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "v6riygzsbi"
+        },
+        {
+          "Name": "label",
+          "Value": "js/product-management.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-Kxkv4NnNLimfF+lfDMg3vHB5hOnRGSWu/K26OwVFuTo="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.b2vltszhsf.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-b2vltszhsf.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001956947162"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "510"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "b2vltszhsf"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.b2vltszhsf.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1025"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "b2vltszhsf"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.b2vltszhsf.js.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-b2vltszhsf.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "510"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "b2vltszhsf"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js.gz"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-b2vltszhsf.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.001956947162"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "510"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1025"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-b2vltszhsf.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "510"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg="
+        }
+      ]
+    }
+  ]
+}

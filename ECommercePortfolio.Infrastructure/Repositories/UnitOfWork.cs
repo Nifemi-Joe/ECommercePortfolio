@@ -1,6 +1,6 @@
-// ECommercePortfolio.Infrastructure/Repositories/UnitOfWork.cs
 using ECommercePortfolio.Core.Interfaces;
 using ECommercePortfolio.Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading.Tasks;
 
@@ -29,6 +29,26 @@ namespace ECommercePortfolio.Infrastructure.Repositories
         public async Task<int> CompleteAsync()
         {
             return await _context.SaveChangesAsync();
+        }
+
+        // Implementation for the SaveChangesAsync method
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync();
+        }
+
+        // Implementation for UpdateAsync method
+        public async Task<int> UpdateAsync<T>(T entity) where T : class
+        {
+            _context.Entry(entity).State = EntityState.Modified;
+            return await SaveChangesAsync();
+        }
+
+        // Implementation for DeleteAsync method
+        public async Task<int> DeleteAsync<T>(T entity) where T : class
+        {
+            _context.Set<T>().Remove(entity);
+            return await SaveChangesAsync();
         }
 
         public void Dispose()

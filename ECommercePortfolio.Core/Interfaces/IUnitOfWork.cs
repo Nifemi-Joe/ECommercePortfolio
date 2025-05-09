@@ -12,5 +12,10 @@ namespace ECommercePortfolio.Core.Interfaces
         ICategoryRepository Categories { get; }
         IOrderRepository Orders { get; }
         Task<int> CompleteAsync();
+        Task<int> UpdateAsync<T>(T entity) where T : class;
+        Task<int> DeleteAsync<T>(T entity) where T : class;
+
+                // Include other existing methods your interface already has
+        Task<int> SaveChangesAsync();
     }
 }

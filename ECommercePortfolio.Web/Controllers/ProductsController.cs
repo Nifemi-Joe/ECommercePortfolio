@@ -4,6 +4,7 @@ using ECommercePortfolio.Core.Interfaces;
 using ECommercePortfolio.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -125,10 +126,11 @@ namespace ECommercePortfolio.Web.Controllers
             var categories = await _unitOfWork.Categories.ListAllAsync();
             var viewModel = new ProductCreateViewModel
             {
-                Categories = categories.Select(c => new CategoryViewModel
+                // Convert CategoryViewModel to SelectListItem
+                Categories = categories.Select(c => new SelectListItem
                 {
-                    Id = c.Id,
-                    Name = c.Name
+                    Value = c.Id.ToString(),
+                    Text = c.Name
                 }).ToList()
             };
 
@@ -153,9 +155,14 @@ namespace ECommercePortfolio.Web.Controllers
                 };
 
                 // Handle image upload
-                if (viewModel.ImageFile != null)
+                if (viewModel.ImageFile != null || viewModel.ProductImage != null)
                 {
-                    product.ImageUrl = await SaveImageAsync(viewModel.ImageFile);
+                    // Use whichever isn't null
+                    var imageToUse = viewModel.ImageFile ?? viewModel.ProductImage;
+                    if (imageToUse != null)
+                    {
+                        product.ImageUrl = await SaveImageAsync(imageToUse);
+                    }
                 }
 
                 await _unitOfWork.Products.AddAsync(product);
@@ -167,10 +174,10 @@ namespace ECommercePortfolio.Web.Controllers
 
             // If we get here, something failed, so redisplay form
             viewModel.Categories = (await _unitOfWork.Categories.ListAllAsync())
-                .Select(c => new CategoryViewModel
+                .Select(c => new SelectListItem
                 {
-                    Id = c.Id,
-                    Name = c.Name
+                    Value = c.Id.ToString(),
+                    Text = c.Name
                 }).ToList();
 
             return View(viewModel);
@@ -197,11 +204,13 @@ namespace ECommercePortfolio.Web.Controllers
                 StockQuantity = product.StockQuantity,
                 CategoryId = product.CategoryId,
                 IsActive = product.IsActive,
+                CurrentImageUrl = product.ImageUrl, // Add this property
                 ExistingImageUrl = product.ImageUrl,
-                Categories = categories.Select(c => new CategoryViewModel
+                Categories = categories.Select(c => new SelectListItem
                 {
-                    Id = c.Id,
-                    Name = c.Name
+                    Value = c.Id.ToString(),
+                    Text = c.Name,
+                    Selected = c.Id == product.CategoryId
                 }).ToList()
             };
 
@@ -237,15 +246,21 @@ namespace ECommercePortfolio.Web.Controllers
                     product.IsActive = viewModel.IsActive;
 
                     // Handle image upload
-                    if (viewModel.ImageFile != null)
+                    // Handle image upload (modified to check both image properties)
+                    if (viewModel.ImageFile != null || viewModel.ProductImage != null)
                     {
-                        // Delete old image if it exists
-                        if (!string.IsNullOrEmpty(product.ImageUrl))
+                        // Use whichever isn't null
+                        var imageToUse = viewModel.ImageFile ?? viewModel.ProductImage;
+                        if (imageToUse != null)
                         {
-                            DeleteImage(product.ImageUrl);
-                        }
+                            // Delete old image if it exists
+                            if (!string.IsNullOrEmpty(product.ImageUrl))
+                            {
+                                DeleteImage(product.ImageUrl);
+                            }
 
-                        product.ImageUrl = await SaveImageAsync(viewModel.ImageFile);
+                            product.ImageUrl = await SaveImageAsync(imageToUse);
+                        }
                     }
 
                     await _unitOfWork.Products.UpdateAsync(product);
@@ -263,10 +278,11 @@ namespace ECommercePortfolio.Web.Controllers
 
             // If we get here, something failed, so redisplay form
             viewModel.Categories = (await _unitOfWork.Categories.ListAllAsync())
-                .Select(c => new CategoryViewModel
+                .Select(c => new SelectListItem
                 {
-                    Id = c.Id,
-                    Name = c.Name
+                    Value = c.Id.ToString(),
+                    Text = c.Name,
+                    Selected = c.Id == viewModel.CategoryId
                 }).ToList();
 
             return View(viewModel);

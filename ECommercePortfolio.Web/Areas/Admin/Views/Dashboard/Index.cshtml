@@ -59,7 +59,7 @@
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
                                 Monthly Sales</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">$@Model.MonthlySales.ToString("N2")</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">$@((Model.TotalSales).ToString("N2"))</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -118,7 +118,7 @@
                         @foreach (var category in Model.CategorySalesData)
                         {
                             <span class="mr-2">
-                                <i class="fas fa-circle" style="color: @GetRandomColor()"></i> @category.Key
+                                <i class="fas fa-circle" style="color: @GetRandomColor()"></i> @category.CategoryName
                             </span>
                         }
                     </div>
@@ -156,7 +156,7 @@
                                         <td>@order.CustomerName</td>
                                         <td>$@order.TotalAmount.ToString("N2")</td>
                                         <td>
-                                            <span class="badge @GetStatusBadgeClass(order.Status)">@order.Status</span>
+                                            <span class="badge @GetStatusBadgeClass(order.Status.ToString())">@order.Status.ToString()</span>
                                         </td>
                                         <td>
                                             <a href="/Admin/Orders/Details/@order.Id" class="btn btn-sm btn-info">
@@ -182,10 +182,10 @@
         const salesChart = new Chart(salesCtx, {
             type: 'line',
             data: {
-                labels: @Html.Raw(Json.Serialize(Model.MonthlySalesData.Keys)),
+                labels: @Html.Raw(Json.Serialize(Model.CategorySalesData.Select(x => x.CategoryName))),
                 datasets: [{
                     label: 'Monthly Sales',
-                    data: @Html.Raw(Json.Serialize(Model.MonthlySalesData.Values)),
+                    data: @Html.Raw(Json.Serialize(Model.CategorySalesData.Select(x => x.Amount))),
                     backgroundColor: 'rgba(78, 115, 223, 0.05)',
                     borderColor: 'rgba(78, 115, 223, 1)',
                     pointRadius: 3,
@@ -219,9 +219,9 @@
         const categoriesChart = new Chart(categoriesCtx, {
             type: 'doughnut',
             data: {
-                labels: @Html.Raw(Json.Serialize(Model.CategorySalesData.Keys)),
+                labels: @Html.Raw(Json.Serialize(Model.CategorySalesData.Select(x => x.CategoryName))),
                 datasets: [{
-                    data: @Html.Raw(Json.Serialize(Model.CategorySalesData.Values)),
+                    data: @Html.Raw(Json.Serialize(Model.CategorySalesData.Select(x => x.Amount))),
                     backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e', '#e74a3b'],
                     hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf', '#dda20a', '#be2617'],
                     hoverBorderColor: "rgba(234, 236, 244, 1)",

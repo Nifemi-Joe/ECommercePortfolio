@@ -1,0 +1,41 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/dashboard.js",
+      "PackagePath": "staticwebassets/js/dashboard.js"
+    },
+    {
+      "Id": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/product-management.js",
+      "PackagePath": "staticwebassets/js/product-management.js"
+    },
+    {
+      "Id": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.ECommercePortfolio.Web.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.ECommercePortfolio.Web.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.build.ECommercePortfolio.Web.props",
+      "PackagePath": "build\\ECommercePortfolio.Web.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildMultiTargeting.ECommercePortfolio.Web.props",
+      "PackagePath": "buildMultiTargeting\\ECommercePortfolio.Web.props"
+    },
+    {
+      "Id": "obj/Debug/net9.0/staticwebassets/msbuild.buildTransitive.ECommercePortfolio.Web.props",
+      "PackagePath": "buildTransitive\\ECommercePortfolio.Web.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
