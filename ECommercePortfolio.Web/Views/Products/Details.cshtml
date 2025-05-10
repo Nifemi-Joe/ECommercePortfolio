@@ -1,53 +1,443 @@
-<!-- ECommercePortfolio.Web/Views/Products/Details.cshtml -->
-@model ECommercePortfolio.Web.Models.ProductViewModel
+@model ECommercePortfolio.Web.Models.ProductDetailsViewModel
 
 @{
+    Layout = "_Layout";
     ViewData["Title"] = Model.Name;
 }
 
-<nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
-        <li class="breadcrumb-item"><a asp-controller="Products" asp-action="Index">Products</a></li>
-        <li class="breadcrumb-item"><a asp-controller="Products" asp-action="Index" asp-route-categoryId="@Model.CategoryId">@Model.CategoryName</a></li>
-        <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
-    </ol>
-</nav>
+<div class="container-fluid px-4 py-5">
+    <!-- Enhanced Breadcrumbs -->
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb breadcrumb-custom">
+            <li class="breadcrumb-item">
+                <a asp-controller="Home" asp-action="Index">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <i class="fas fa-chevron-right breadcrumb-arrow"></i>
+                <a asp-controller="Products" asp-action="Index">Products</a>
+            </li>
+            <li class="breadcrumb-item">
+                <i class="fas fa-chevron-right breadcrumb-arrow"></i>
+                <a asp-controller="Products" asp-action="Index" asp-route-categoryId="@Model.CategoryId">@Model.CategoryName</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+                <i class="fas fa-chevron-right breadcrumb-arrow"></i>
+                @Model.Name
+            </li>
+        </ol>
+    </nav>
 
-<div class="row">
-    <div class="col-md-5">
-        @if (!string.IsNullOrEmpty(Model.ImageUrl))
-        {
-            <img src="@Model.ImageUrl" class="img-fluid" alt="@Model.Name">
-        }
-        else
-        {
-            <img src="~/images/placeholder.png" class="img-fluid" alt="Product image placeholder">
-        }
-    </div>
-    <div class="col-md-7">
-        <h1>@Model.Name</h1>
-        <p class="text-muted mb-3">Category: @Model.CategoryName</p>
+    <div class="product-details-container">
+        <div class="d-flex gap-5">
+            <!-- Product Image -->
+            <div class="col-lg-5">
+                <div class="product-image-card shadow-sm border-0">
+                    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                    {
+                        <img src="@Model.ImageUrl" class="img-fluid" alt="@Model.Name">
+                    }
+                    else
+                    {
+                        <div class="product-placeholder-image">
+                            @{
+                                string iconClass = GetCategoryIcon(Model.CategoryName);
+                            }
+                            <i class="@iconClass"></i>
+                        </div>
+                    }
+                </div>
+            </div>
 
-        <h4 class="text-primary mb-3">$@Model.Price.ToString("0.00")</h4>
+            <!-- Product Details -->
+            <div class="col-lg-7">
+                <div class="product-info-card shadow-sm border-0">
+                    <div class="product-header">
+                        <span class="category-badge">@Model.CategoryName</span>
+                        <h1 class="product-title mt-2">@Model.Name</h1>
+                    </div>
 
-        <p class="lead">@Model.Description</p>
+                    <div class="product-price-section">
+                        <h2 class="price">$@Model.Price.ToString("0.00")</h2>
+                    </div>
 
-        <div class="alert @(Model.StockQuantity > 0 ? "alert-success" : "alert-danger")">
-            @if (Model.StockQuantity > 0)
-            {
-                <i class="fas fa-check-circle"></i>
-                <span>In Stock (@Model.StockQuantity available)</span>
-            }
-            else
-            {
-                <i class="fas fa-exclamation-circle"></i>
-                <span>Out of Stock</span>
-            }
+                    <div class="product-description">
+                        <h4 class="description-title">Description</h4>
+                        <p class="description-text">@Model.Description</p>
+                    </div>
+
+                    <div class="product-meta">
+                        <div class="stock-status @(Model.StockQuantity > 0 ? "in-stock" : "out-of-stock")">
+                            @if (Model.StockQuantity > 0)
+                            {
+                                <i class="fas fa-check-circle"></i>
+                                <span>In Stock (@Model.StockQuantity available)</span>
+                            }
+                            else
+                            {
+                                <i class="fas fa-exclamation-circle"></i>
+                                <span>Out of Stock</span>
+                            }
+                        </div>
+
+                        <div class="product-actions mt-4">
+                            <div class="quantity-controls">
+                                <button class="quantity-btn minus">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <input type="number" class="quantity-input" value="1" min="1" max="@Model.StockQuantity">
+                                <button class="quantity-btn plus">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="action-buttons">
+                                <button class="btn btn-primary btn-lg add-to-cart-btn" @(Model.StockQuantity <= 0 ? "disabled" : "")>
+                                    <i class="fas fa-shopping-cart me-2"></i>Add to Cart
+                                </button>
+                                <button class="btn btn-outline-danger wishlist-btn">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="back-link mt-4">
+                    <a asp-controller="Products" asp-action="Index" class="btn btn-outline-primary">
+                        <i class="fas fa-arrow-left me-2"></i>Back to Products
+                    </a>
+                </div>
+            </div>
         </div>
-
-        <a asp-controller="Products" asp-action="Index" class="btn btn-outline-secondary">
-            <i class="fas fa-arrow-left"></i> Back to Products
-        </a>
     </div>
 </div>
+
+@functions {
+    public string GetCategoryIcon(string categoryName)
+    {
+        return categoryName?.ToLower() switch
+        {
+            "electronics" => "fas fa-laptop fa-5x",
+            "clothing" => "fas fa-tshirt fa-5x",
+            "home & kitchen" => "fas fa-home fa-5x",
+            "books" => "fas fa-book fa-5x",
+            "sports & outdoors" => "fas fa-hiking fa-5x",
+            "beauty & personal care" => "fas fa-spa fa-5x",
+            "toys & games" => "fas fa-gamepad fa-5x",
+            "automotive" => "fas fa-car fa-5x",
+            "grocery" => "fas fa-shopping-basket fa-5x",
+            "health" => "fas fa-heartbeat fa-5x",
+            "pet supplies" => "fas fa-paw fa-5x",
+            "office supplies" => "fas fa-paperclip fa-5x",
+            "music & instruments" => "fas fa-music fa-5x",
+            _ => "fas fa-box fa-5x" // default icon
+        };
+    }
+}
+
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+            // Quantity controls functionality
+            $('.quantity-btn.plus').click(function() {
+                var input = $(this).siblings('.quantity-input');
+                var value = parseInt(input.val());
+                var max = parseInt(input.attr('max'));
+                
+                if (value < max) {
+                    input.val(value + 1);
+                }
+            });
+
+            $('.quantity-btn.minus').click(function() {
+                var input = $(this).siblings('.quantity-input');
+                var value = parseInt(input.val());
+                
+                if (value > 1) {
+                    input.val(value - 1);
+                }
+            });
+
+            // Prevent direct input if it exceeds max
+            $('.quantity-input').on('change', function() {
+                var value = parseInt($(this).val());
+                var max = parseInt($(this).attr('max'));
+                
+                if (value > max) {
+                    $(this).val(max);
+                } else if (value < 1 || isNaN(value)) {
+                    $(this).val(1);
+                }
+            });
+
+            // Wishlist button toggle
+            $('.wishlist-btn').click(function() {
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+}
+
+@section Styles {
+    <style>
+        /* Enhanced Breadcrumbs */
+        .breadcrumb-custom {
+            padding: 15px 0;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .breadcrumb-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .breadcrumb-arrow {
+            font-size: 0.7rem;
+            margin: 0 10px;
+            color: #6c757d;
+        }
+
+        .breadcrumb-item a {
+            color: #0d6efd;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb-item a:hover {
+            color: #0a58ca;
+            text-decoration: underline;
+        }
+
+        .breadcrumb-item.active {
+            color: #6c757d;
+        }
+
+        /* Product Details Container */
+        .product-details-container {
+            margin-bottom: 60px;
+        }
+
+        /* Product Image */
+        .product-image-card {
+            border-radius: 15px;
+            overflow: hidden;
+            background-color: #fff;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-image-card img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .product-placeholder-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 400px;
+            background-color: #f8f9fa;
+            color: #0d6efd;
+        }
+
+        /* Product Info */
+        .product-info-card {
+            padding: 30px;
+            border-radius: 15px;
+            background-color: #fff;
+            height: 100%;
+        }
+
+        .product-header {
+            margin-bottom: 20px;
+        }
+
+        .category-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            background-color: #e9ecef;
+            color: #0d6efd;
+            font-weight: 600;
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+
+        .product-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-top: 10px;
+            margin-bottom: 0;
+            color: #212529;
+            line-height: 1.2;
+        }
+
+        .product-price-section {
+            margin: 25px 0;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .price {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0d6efd;
+            margin: 0;
+        }
+
+        .product-description {
+            margin-bottom: 30px;
+        }
+
+        .description-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #495057;
+        }
+
+        .description-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #6c757d;
+        }
+
+        .product-meta {
+            margin-top: 30px;
+        }
+
+        .stock-status {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .stock-status.in-stock {
+            background-color: #d1e7dd;
+            color: #0f5132;
+        }
+
+        .stock-status.out-of-stock {
+            background-color: #f8d7da;
+            color: #842029;
+        }
+
+        .stock-status i {
+            margin-right: 8px;
+        }
+
+        .product-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quantity-btn:hover {
+            background: #e9ecef;
+        }
+
+        .quantity-btn.minus {
+            border-radius: 8px 0 0 8px;
+        }
+
+        .quantity-btn.plus {
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #dee2e6;
+            border-left: none;
+            border-right: none;
+        }
+
+        .quantity-input:focus {
+            outline: none;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .add-to-cart-btn {
+            flex-grow: 1;
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .wishlist-btn {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+        }
+
+        .wishlist-btn.active {
+            background-color: #dc3545;
+            color: white;
+            border-color: #dc3545;
+        }
+
+        .back-link {
+            margin-top: 30px;
+        }
+
+        /* Responsive adjustments */
+        @@media (max-width: 992px) {
+            .product-image-card, .product-info-card {
+                margin-bottom: 30px;
+            }
+        }
+
+        @@media (max-width: 768px) {
+            .product-title {
+                font-size: 2rem;
+            }
+            
+            .price {
+                font-size: 1.8rem;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+}

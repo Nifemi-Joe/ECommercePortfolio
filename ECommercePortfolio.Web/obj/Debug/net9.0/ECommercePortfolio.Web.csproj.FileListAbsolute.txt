@@ -78,10 +78,8 @@
 /Users/mac/ECommercePortfolio/ECommercePortfolio.Web/bin/Debug/net9.0/ECommercePortfolio.Core.pdb
 /Users/mac/ECommercePortfolio/ECommercePortfolio.Web/bin/Debug/net9.0/ECommercePortfolio.Infrastructure.pdb
 /Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/scopedcss/bundle/ECommercePortfolio.Web.styles.css
-/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-rkaa844an7.gz
 /Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/f22875xzwg-b5x1fnv6v3.gz
 /Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/ymziqyjz0l-v6riygzsbi.gz
-/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-b2vltszhsf.gz
 /Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/staticwebassets.build.json
 /Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/staticwebassets.development.json
 /Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/staticwebassets.build.endpoints.json
@@ -180,3 +178,5 @@
 /Users/mac/ECommercePortfolio/ECommercePortfolio.Web/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 /Users/mac/ECommercePortfolio/ECommercePortfolio.Web/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 /Users/mac/ECommercePortfolio/ECommercePortfolio.Web/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-payzcc7qsq.gz
+/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-pl705ilczo.gz

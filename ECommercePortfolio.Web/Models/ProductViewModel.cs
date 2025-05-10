@@ -26,7 +26,7 @@ namespace ECommercePortfolio.Web.Models
 
         [Display(Name = "Image URL")]
         [StringLength(300)]
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
 
         [Display(Name = "Active")]
         public bool IsActive { get; set; } = true;

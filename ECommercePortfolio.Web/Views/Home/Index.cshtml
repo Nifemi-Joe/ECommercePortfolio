@@ -1,39 +1,301 @@
-<!-- ECommercePortfolio.Web/Views/Home/Index.cshtml -->
 @{
+    Layout = "_Layout";  // Specify the layout you want to use
     ViewData["Title"] = "Home";
 }
 
-<div class="jumbotron">
-    <h1 class="display-4">Welcome to E-Commerce Dashboard</h1>
-    <p class="lead">A showcase project demonstrating ASP.NET Core development skills with C#, SQL, and best practices.</p>
-    <hr class="my-4">
-    <p>This application includes user authentication, product management, and reporting features.</p>
-    <a class="btn btn-primary btn-lg" asp-controller="Products" asp-action="Index" role="button">Browse Products</a>
+@section Styles {
+    <style>
+        /* Page specific styles */
+        .auth-prompt {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #e3f2fd 100%);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .auth-prompt:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .auth-prompt::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(30%, -30%);
+        }
+
+        .welcome-section {
+            position: relative;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .welcome-image {
+            background: linear-gradient(135deg, var(--primary-light) 0%, #e3f2fd 100%);
+            transition: all 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .welcome-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            animation: pulse 4s linear infinite;
+        }
+
+        @@keyframes pulse {
+            0% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(0.8); opacity: 0.5; }
+        }
+
+        .welcome-image i {
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature-card, .stat-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .feature-icon {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 80%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+
+        .feature-card:hover .feature-icon::after {
+            opacity: 1;
+        }
+
+        .stat-card {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Animation classes */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @@keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .delay-100 { animation-delay: 0.1s; }
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-300 { animation-delay: 0.3s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-500 { animation-delay: 0.5s; }
+    </style>
+}
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <div class="auth-prompt animate__animated animate__fadeIn">
+        <div class="auth-prompt-content p-4 p-md-5">
+            <div class="icon-container animate__animated animate__zoomIn animate__delay-1s">
+                <i class="fas fa-lock"></i>
+            </div>
+            <h2 class="animate__animated animate__fadeInUp animate__delay-1s">Welcome to E-Commerce Dashboard</h2>
+            <p class="animate__animated animate__fadeInUp animate__delay-1s">Please log in to access all features and functionalities.</p>
+            <div class="auth-buttons animate__animated animate__fadeInUp animate__delay-2s">
+                <a asp-controller="Account" asp-action="Login" class="btn btn-primary btn-lg">
+                    <i class="fas fa-sign-in-alt me-2"></i> Login
+                </a>
+                <a asp-controller="Account" asp-action="Register" class="btn btn-outline-primary btn-lg">
+                    <i class="fas fa-user-plus me-2"></i> Register
+                </a>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="welcome-section fade-in-up">
+    <div class="row">
+        <div class="col-md-6">
+            <h1 class="display-4">Welcome to<br><span class="text-primary">E-Commerce Dashboard</span></h1>
+            <p class="lead">A comprehensive solution for managing your e-commerce business with powerful tools and analytics.</p>
+            <hr class="my-4">
+            <p>Track sales, manage inventory, and analyze performance with our intuitive dashboard.</p>
+            <div class="mt-4 d-flex gap-3">
+                <a class="btn btn-primary btn-lg me-2" asp-controller="Products" asp-action="Index" role="button">
+                    <i class="fas fa-box me-2"></i>Browse Products
+                </a>
+                @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                {
+                    <a class="btn btn-outline-primary btn-lg" asp-area="Admin" asp-controller="Dashboard" asp-action="Index" role="button">
+                        <i class="fas fa-tachometer-alt me-2"></i>Go to Dashboard
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="col-md-6 d-flex align-items-center justify-content-center">
+            <div class="welcome-image fade-in-up delay-200">
+                <i class="fas fa-chart-line"></i>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-users"></i> User Authentication</h5>
-                <p class="card-text">Secure login system with role-based permissions using ASP.NET Core Identity.</p>
+<div class="features-section mt-5 fade-in-up delay-300">
+    <h2 class="section-title">Key Features</h2>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="feature-card fade-in-up delay-100">
+                <div class="feature-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h3>User Management</h3>
+                <p>Secure login system with role-based permissions using ASP.NET Core Identity. Manage user accounts with different access levels.</p>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-database"></i> Product Management</h5>
-                <p class="card-text">Complete CRUD operations for products and categories with Entity Framework Core.</p>
+        <div class="col-lg-4">
+            <div class="feature-card fade-in-up delay-200">
+                <div class="feature-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Product Management</h3>
+                <p>Complete CRUD operations for products and categories with Entity Framework Core. Easily add, update, and track your inventory.</p>
             </div>
         </div>
-    </div>
-    <div class="col-md-4">
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title"><i class="fas fa-chart-bar"></i> Dashboard & Reporting</h5>
-                <p class="card-text">Interactive charts and reports for sales and inventory analysis.</p>
+        <div class="col-lg-4">
+            <div class="feature-card fade-in-up delay-300">
+                <div class="feature-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h3>Analytics & Reporting</h3>
+                <p>Interactive charts and comprehensive reports for sales and inventory analysis. Make data-driven decisions for your business.</p>
             </div>
         </div>
     </div>
 </div>
+
+<div class="statistics-section mt-5 fade-in-up delay-400">
+    <h2 class="section-title">Platform Statistics</h2>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="stat-card fade-in-up delay-100">
+                <div class="stat-icon">
+                    <i class="fas fa-box"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>1000+</h3>
+                    <p>Products</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card fade-in-up delay-200">
+                <div class="stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>500+</h3>
+                    <p>Customers</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card fade-in-up delay-300">
+                <div class="stat-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>5000+</h3>
+                    <p>Orders</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stat-card fade-in-up delay-400">
+                <div class="stat-icon">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <div class="stat-content">
+                    <h3>25+</h3>
+                    <p>Categories</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add special animation effects for this page
+            const welcomeImage = document.querySelector('.welcome-image');
+            if (welcomeImage) {
+                welcomeImage.addEventListener('mousemove', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+
+                    const moveX = (x - centerX) / 20;
+                    const moveY = (y - centerY) / 20;
+
+                    this.style.transform = `translate(${moveX}px, ${moveY}px)`;
+                });
+
+                welcomeImage.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+            }
+
+            // Ensure all links have proper loading transitions
+            document.querySelectorAll('a:not([target="_blank"])').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Don't show loading for anchor links
+                    if (this.getAttribute('href').startsWith('#')) return;
+
+                    // Don't interfere with controlled events
+                    if (e.ctrlKey || e.metaKey) return;
+
+                    const loadingOverlay = document.querySelector('.loading-overlay');
+                    if (loadingOverlay) {
+                        loadingOverlay.style.display = 'flex';
+
+                        // Safety timeout in case the page doesn't change
+                        setTimeout(() => {
+                            loadingOverlay.style.display = 'none';
+                        }, 2000);
+                    }
+                });
+            });
+        });
+    </script>
+}

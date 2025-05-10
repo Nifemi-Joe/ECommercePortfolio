@@ -28,6 +28,7 @@ namespace ECommercePortfolio.Web.Controllers
         }
 
         // GET: Products
+        // GET: Products
         public async Task<IActionResult> Index(string searchTerm, int? categoryId, int page = 1)
         {
             // This method is similar to querying data with JavaScript filter/map operations
@@ -61,6 +62,7 @@ namespace ECommercePortfolio.Web.Controllers
 
             // Pagination
             var totalItems = productViewModels.Count;
+            var totalPages = (int)Math.Ceiling((decimal)totalItems / PageSize);
             var itemsToDisplay = productViewModels
                 .Skip((page - 1) * PageSize)
                 .Take(PageSize)
@@ -90,6 +92,36 @@ namespace ECommercePortfolio.Web.Controllers
             };
 
             return View(viewModel);
+        }
+
+// New action for loading more products
+        public async Task<IActionResult> LoadMoreProducts(int skip, string searchTerm, int? categoryId, int take = 10)
+        {
+            // In a real application, get data from your service
+            // var products = await _productService.GetProductsAsync(searchTerm, categoryId, skip, take);
+
+            var products = await _unitOfWork.Products.GetProductsWithCategoryAsync();
+
+            // Apply filters
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                products = products.Where(p => p.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                                             p.Description.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                                   .ToList();
+            }
+
+            if (categoryId.HasValue)
+            {
+                products = products.Where(p => p.CategoryId == categoryId).ToList();
+            }
+
+            // Apply skip and take
+            var pagedProducts = products
+                .Skip(skip)
+                .Take(take)
+                .ToList();
+
+            return PartialView("_ProductsList", pagedProducts);
         }
 
         // GET: Products/Details/5

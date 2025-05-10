@@ -1,28 +1,88 @@
-<!-- ECommercePortfolio.Web/Views/Shared/_LoginPartial.cshtml -->
+@* ECommercePortfolio.Web/Views/Shared/_LoginPartial.cshtml *@
 @using Microsoft.AspNetCore.Identity
 @using ECommercePortfolio.Core.Entities
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<ul class="navbar-nav">
 @if (SignInManager.IsSignedIn(User))
 {
-    <li class="nav-item">
-        <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity.Name!</a>
-    </li>
-    <li class="nav-item">
-        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-            <button type="submit" class="nav-link btn btn-link text-light">Logout</button>
-        </form>
-    </li>
+    <div class="user-menu dropdown">
+        <a class="dropdown-toggle user-dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            @{
+                var user = await UserManager.GetUserAsync(User);
+                var displayName = !string.IsNullOrEmpty(user?.FirstName)
+                    ? $"{user.FirstName} {user.LastName?.Substring(0, 1)}."
+                    : User.Identity?.Name?.Split('@')[0];
+            }
+            <div class="user-avatar">
+                @{
+                    string initials = string.Empty;
+                    if (!string.IsNullOrEmpty(user?.FirstName) && !string.IsNullOrEmpty(user?.LastName))
+                    {
+                        initials = $"{user.FirstName[0]}{user.LastName[0]}".ToUpper();
+                    }
+                    else if (User.Identity?.Name != null)
+                    {
+                        var parts = User.Identity.Name.Split('@')[0].Split('.');
+                        if (parts.Length > 1)
+                        {
+                            initials = $"{parts[0][0]}{parts[1][0]}".ToUpper();
+                        }
+                        else
+                        {
+                            initials = parts[0].Length > 1 ? $"{parts[0][0]}{parts[0][1]}".ToUpper() : parts[0][0].ToString().ToUpper();
+                        }
+                    }
+                }
+                <span class="initials">@initials</span>
+            </div>
+            <span class="user-name d-none d-md-inline-block ms-2">@displayName</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end animate__animated animate__fadeIn" aria-labelledby="userDropdown">
+            <li class="dropdown-header">
+                <div class="d-flex align-items-center">
+                    <div class="user-avatar-sm me-2">
+                        <span class="initials">@initials</span>
+                    </div>
+                    <div>
+                        <strong>@displayName</strong>
+                        <div class="small text-muted">@User.Identity?.Name</div>
+                    </div>
+                </div>
+            </li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">
+                    <i class="fas fa-user-cog me-2"></i> Profile Settings
+                </a>
+            </li>
+            @if (User.IsInRole("Admin"))
+            {
+                <li>
+                    <a class="dropdown-item" asp-area="Admin" asp-controller="Settings" asp-action="Index">
+                        <i class="fas fa-cog me-2"></i> System Settings
+                    </a>
+                </li>
+            }
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt me-2"></i> Logout
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
 }
 else
 {
-    <li class="nav-item">
-        <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Register">Register</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link text-light" asp-area="Identity" asp-page="/Account/Login">Login</a>
-    </li>
+    <div class="nav-buttons">
+        <a class="btn btn-outline-primary me-2" asp-controller="Account" asp-action="Login">
+            <i class="fas fa-sign-in-alt me-1"></i> Login
+        </a>
+        <a class="btn btn-primary" asp-controller="Account" asp-action="Register">
+            <i class="fas fa-user-plus me-1"></i> Register
+        </a>
+    </div>
 }
-</ul>

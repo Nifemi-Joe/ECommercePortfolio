@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "0cMoTCVAuZCJ5JUxE89li4DDz9pcY+p7ZEe+27Ys5Wc=",
+  "Hash": "hwjyFE83HCwF8KY28+5EP66xlb9GgFhVi1FMtRBr1Mk=",
   "Source": "ECommercePortfolio.Web",
   "BasePath": "_content/ECommercePortfolio.Web",
   "Mode": "Default",
@@ -38,12 +38,12 @@
       "OriginalItemSpec": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/dashboard.js"
     },
     {
-      "Identity": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-b2vltszhsf.gz",
+      "Identity": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-payzcc7qsq.gz",
       "SourceId": "ECommercePortfolio.Web",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/ECommercePortfolio.Web",
-      "RelativePath": "js/site#[.{fingerprint=b2vltszhsf}]?.js.gz",
+      "RelativePath": "js/site#[.{fingerprint=payzcc7qsq}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -52,19 +52,19 @@
       "RelatedAsset": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/site.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "lvx55bij13",
-      "Integrity": "P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg=",
+      "Fingerprint": "9gxfnwkxg5",
+      "Integrity": "Gc5EBbJrrCgt+umsx8fvG9tTDdWxdzfgPDmmejqZm/A=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/site.js"
     },
     {
-      "Identity": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-rkaa844an7.gz",
+      "Identity": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-pl705ilczo.gz",
       "SourceId": "ECommercePortfolio.Web",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/",
       "BasePath": "_content/ECommercePortfolio.Web",
-      "RelativePath": "css/site#[.{fingerprint=rkaa844an7}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=pl705ilczo}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -73,8 +73,8 @@
       "RelatedAsset": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/css/site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "7ayfiv6ctn",
-      "Integrity": "sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY=",
+      "Fingerprint": "7jprenskvd",
+      "Integrity": "AwRlEE0pW3888slN8UnZRu2Pk067wriPHUrvxRqbIdo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/css/site.css"
@@ -115,8 +115,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "rkaa844an7",
-      "Integrity": "9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8=",
+      "Fingerprint": "pl705ilczo",
+      "Integrity": "fSOqj2vbrjxCxxN9ZPnkP9Ih/4dGkMAoA9FyXp931Tw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
@@ -178,8 +178,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "b2vltszhsf",
-      "Integrity": "gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o=",
+      "Fingerprint": "payzcc7qsq",
+      "Integrity": "nzuzSg/iWfac53mCSarrFw28208xWwq/gTdpYMx1umc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/site.js"
@@ -188,12 +188,12 @@
   "Endpoints": [
     {
       "Route": "css/site.css",
-      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-rkaa844an7.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-pl705ilczo.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000921658986"
+          "Quality": "0.000219635405"
         }
       ],
       "ResponseHeaders": [
@@ -203,15 +203,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1084"
+          "Value": "4552"
         },
         {
           "Name": "ETag",
-          "Value": "\"sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY=\""
+          "Value": "\"AwRlEE0pW3888slN8UnZRu2Pk067wriPHUrvxRqbIdo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 06:46:09 GMT"
+          "Value": "Sat, 10 May 2025 02:50:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -231,13 +231,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8=\""
+          "Value": "W/\"fSOqj2vbrjxCxxN9ZPnkP9Ih/4dGkMAoA9FyXp931Tw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8="
+          "Value": "sha256-fSOqj2vbrjxCxxN9ZPnkP9Ih/4dGkMAoA9FyXp931Tw="
         }
       ]
     },
@@ -252,7 +252,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3147"
+          "Value": "21922"
         },
         {
           "Name": "Content-Type",
@@ -260,11 +260,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8=\""
+          "Value": "\"fSOqj2vbrjxCxxN9ZPnkP9Ih/4dGkMAoA9FyXp931Tw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 06:46:09 GMT"
+          "Value": "Sat, 10 May 2025 02:50:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -274,13 +274,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8="
+          "Value": "sha256-fSOqj2vbrjxCxxN9ZPnkP9Ih/4dGkMAoA9FyXp931Tw="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-rkaa844an7.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-pl705ilczo.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -289,7 +289,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1084"
+          "Value": "4552"
         },
         {
           "Name": "Content-Type",
@@ -297,11 +297,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY=\""
+          "Value": "\"AwRlEE0pW3888slN8UnZRu2Pk067wriPHUrvxRqbIdo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 06:46:09 GMT"
+          "Value": "Sat, 10 May 2025 02:50:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -319,18 +319,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY="
+          "Value": "sha256-AwRlEE0pW3888slN8UnZRu2Pk067wriPHUrvxRqbIdo="
         }
       ]
     },
     {
-      "Route": "css/site.rkaa844an7.css",
-      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-rkaa844an7.gz",
+      "Route": "css/site.pl705ilczo.css",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-pl705ilczo.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000921658986"
+          "Quality": "0.000219635405"
         }
       ],
       "ResponseHeaders": [
@@ -340,15 +340,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1084"
+          "Value": "4552"
         },
         {
           "Name": "ETag",
-          "Value": "\"sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY=\""
+          "Value": "\"AwRlEE0pW3888slN8UnZRu2Pk067wriPHUrvxRqbIdo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 06:46:09 GMT"
+          "Value": "Sat, 10 May 2025 02:50:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -368,13 +368,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8=\""
+          "Value": "W/\"fSOqj2vbrjxCxxN9ZPnkP9Ih/4dGkMAoA9FyXp931Tw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "rkaa844an7"
+          "Value": "pl705ilczo"
         },
         {
           "Name": "label",
@@ -382,12 +382,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8="
+          "Value": "sha256-fSOqj2vbrjxCxxN9ZPnkP9Ih/4dGkMAoA9FyXp931Tw="
         }
       ]
     },
     {
-      "Route": "css/site.rkaa844an7.css",
+      "Route": "css/site.pl705ilczo.css",
       "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/css/site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -397,7 +397,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3147"
+          "Value": "21922"
         },
         {
           "Name": "Content-Type",
@@ -405,11 +405,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8=\""
+          "Value": "\"fSOqj2vbrjxCxxN9ZPnkP9Ih/4dGkMAoA9FyXp931Tw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 06:46:09 GMT"
+          "Value": "Sat, 10 May 2025 02:50:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -419,7 +419,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "rkaa844an7"
+          "Value": "pl705ilczo"
         },
         {
           "Name": "label",
@@ -427,13 +427,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-9VNjtobY1KzgEFw8GzkH/3mYDYxaywfiWEyWbHPU4Z8="
+          "Value": "sha256-fSOqj2vbrjxCxxN9ZPnkP9Ih/4dGkMAoA9FyXp931Tw="
         }
       ]
     },
     {
-      "Route": "css/site.rkaa844an7.css.gz",
-      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-rkaa844an7.gz",
+      "Route": "css/site.pl705ilczo.css.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/raqkh7l7g7-pl705ilczo.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -442,7 +442,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1084"
+          "Value": "4552"
         },
         {
           "Name": "Content-Type",
@@ -450,11 +450,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY=\""
+          "Value": "\"AwRlEE0pW3888slN8UnZRu2Pk067wriPHUrvxRqbIdo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 06:46:09 GMT"
+          "Value": "Sat, 10 May 2025 02:50:22 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -472,7 +472,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "rkaa844an7"
+          "Value": "pl705ilczo"
         },
         {
           "Name": "label",
@@ -480,7 +480,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-sRbvwk+rNYmShpzP0Wv/n78c7nGIQ2Bf2wFQr4huAUY="
+          "Value": "sha256-AwRlEE0pW3888slN8UnZRu2Pk067wriPHUrvxRqbIdo="
         }
       ]
     },
@@ -1081,13 +1081,13 @@
       ]
     },
     {
-      "Route": "js/site.b2vltszhsf.js",
-      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-b2vltszhsf.gz",
+      "Route": "js/site.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-payzcc7qsq.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.001956947162"
+          "Quality": "0.000388198758"
         }
       ],
       "ResponseHeaders": [
@@ -1097,19 +1097,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "510"
+          "Value": "2575"
         },
         {
           "Name": "ETag",
-          "Value": "\"P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg=\""
+          "Value": "\"Gc5EBbJrrCgt+umsx8fvG9tTDdWxdzfgPDmmejqZm/A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+          "Value": "Fri, 09 May 2025 12:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
+          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -1125,26 +1125,18 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o=\""
+          "Value": "W/\"nzuzSg/iWfac53mCSarrFw28208xWwq/gTdpYMx1umc=\""
         }
       ],
       "EndpointProperties": [
         {
-          "Name": "fingerprint",
-          "Value": "b2vltszhsf"
-        },
-        {
-          "Name": "label",
-          "Value": "js/site.js"
-        },
-        {
           "Name": "integrity",
-          "Value": "sha256-gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o="
+          "Value": "sha256-nzuzSg/iWfac53mCSarrFw28208xWwq/gTdpYMx1umc="
         }
       ]
     },
     {
-      "Route": "js/site.b2vltszhsf.js",
+      "Route": "js/site.js",
       "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/site.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -1154,7 +1146,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1025"
+          "Value": "9733"
         },
         {
           "Name": "Content-Type",
@@ -1162,11 +1154,156 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o=\""
+          "Value": "\"nzuzSg/iWfac53mCSarrFw28208xWwq/gTdpYMx1umc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+          "Value": "Fri, 09 May 2025 12:20:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-nzuzSg/iWfac53mCSarrFw28208xWwq/gTdpYMx1umc="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.js.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-payzcc7qsq.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2575"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Gc5EBbJrrCgt+umsx8fvG9tTDdWxdzfgPDmmejqZm/A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 12:20:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-Gc5EBbJrrCgt+umsx8fvG9tTDdWxdzfgPDmmejqZm/A="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.payzcc7qsq.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-payzcc7qsq.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000388198758"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2575"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"Gc5EBbJrrCgt+umsx8fvG9tTDdWxdzfgPDmmejqZm/A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 12:20:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"nzuzSg/iWfac53mCSarrFw28208xWwq/gTdpYMx1umc=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "payzcc7qsq"
+        },
+        {
+          "Name": "label",
+          "Value": "js/site.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-nzuzSg/iWfac53mCSarrFw28208xWwq/gTdpYMx1umc="
+        }
+      ]
+    },
+    {
+      "Route": "js/site.payzcc7qsq.js",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/site.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9733"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"nzuzSg/iWfac53mCSarrFw28208xWwq/gTdpYMx1umc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 09 May 2025 12:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1176,7 +1313,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b2vltszhsf"
+          "Value": "payzcc7qsq"
         },
         {
           "Name": "label",
@@ -1184,13 +1321,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o="
+          "Value": "sha256-nzuzSg/iWfac53mCSarrFw28208xWwq/gTdpYMx1umc="
         }
       ]
     },
     {
-      "Route": "js/site.b2vltszhsf.js.gz",
-      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-b2vltszhsf.gz",
+      "Route": "js/site.payzcc7qsq.js.gz",
+      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-payzcc7qsq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -1199,7 +1336,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "510"
+          "Value": "2575"
         },
         {
           "Name": "Content-Type",
@@ -1207,11 +1344,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg=\""
+          "Value": "\"Gc5EBbJrrCgt+umsx8fvG9tTDdWxdzfgPDmmejqZm/A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 06:47:03 GMT"
+          "Value": "Fri, 09 May 2025 12:20:55 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1229,7 +1366,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "b2vltszhsf"
+          "Value": "payzcc7qsq"
         },
         {
           "Name": "label",
@@ -1237,144 +1374,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg="
-        }
-      ]
-    },
-    {
-      "Route": "js/site.js",
-      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-b2vltszhsf.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.001956947162"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "510"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 06:47:03 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o=\""
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o="
-        }
-      ]
-    },
-    {
-      "Route": "js/site.js",
-      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/wwwroot/js/site.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1025"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 06:47:03 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-gy3KGpt9HdwLCaCa3dLfuBQS9PbBxS9Awi/AKuU5b9o="
-        }
-      ]
-    },
-    {
-      "Route": "js/site.js.gz",
-      "AssetFile": "/Users/mac/ECommercePortfolio/ECommercePortfolio.Web/obj/Debug/net9.0/compressed/hwp3syijsj-b2vltszhsf.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "510"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 06:47:03 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-P7Qr3BrZsi63INYeTZyV3WtVOcQXSIgPj94WH2ThcGg="
+          "Value": "sha256-Gc5EBbJrrCgt+umsx8fvG9tTDdWxdzfgPDmmejqZm/A="
         }
       ]
     }

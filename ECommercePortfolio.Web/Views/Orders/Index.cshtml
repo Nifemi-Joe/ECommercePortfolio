@@ -1,0 +1,188 @@
+@model IEnumerable<ECommercePortfolio.Web.Models.OrderViewModel>
+@{
+    ViewData["Title"] = "Orders";
+    Layout = "_Layout";  // Specify the layout you want to use
+}
+
+<div class="card">
+    <div class="card-header">
+        <div class="d-flex justify-content-between align-items-center">
+            <h5 class="card-title mb-0">
+                <i class="fas fa-shopping-bag me-2"></i>Order List
+            </h5>
+            <div>
+                <form asp-action="Index" method="get" class="row g-2 align-items-center">
+                    <div class="col-auto">
+                        <div class="input-group">
+                            <input type="text" name="searchString" class="form-control" placeholder="Search orders..." value="@ViewData["CurrentFilter"]" />
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <select name="status" class="form-select" onchange="this.form.submit()">
+                            <option value="">All Statuses</option>
+                            @foreach (var status in Enum.GetValues(typeof(ECommercePortfolio.Core.Entities.OrderStatus)))
+                            {
+                                <option value="@status" selected="@(ViewData["CurrentStatus"]?.ToString() == status.ToString() ? "selected" : null)">
+                                    @status
+                                </option>
+                            }
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        @if (!Model.Any())
+        {
+            <div class="text-center p-5">
+                <i class="fas fa-shopping-bag fa-4x text-muted mb-3"></i>
+                <h4>No Orders Found</h4>
+                <p class="text-muted">There are no orders matching your search criteria.</p>
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>
+                                <a asp-action="Index" asp-route-sortOrder="@ViewData["OrderNumberSortParam"]" class="text-decoration-none text-dark">
+                                    @Html.DisplayNameFor(model => model.OrderNumber)
+                                    <i class="fas fa-sort ms-1"></i>
+                                </a>
+                            </th>
+                            <th>
+                                <a asp-action="Index" asp-route-sortOrder="@ViewData["CustomerSortParam"]" class="text-decoration-none text-dark">
+                                    @Html.DisplayNameFor(model => model.CustomerName)
+                                    <i class="fas fa-sort ms-1"></i>
+                                </a>
+                            </th>
+                            <th>
+                                <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParam"]" class="text-decoration-none text-dark">
+                                    @Html.DisplayNameFor(model => model.OrderDate)
+                                    <i class="fas fa-sort ms-1"></i>
+                                </a>
+                            </th>
+                            <th>
+                                <a asp-action="Index" asp-route-sortOrder="@ViewData["TotalSortParam"]" class="text-decoration-none text-dark">
+                                    @Html.DisplayNameFor(model => model.TotalAmount)
+                                    <i class="fas fa-sort ms-1"></i>
+                                </a>
+                            </th>
+                            <th>
+                                <a asp-action="Index" asp-route-sortOrder="@ViewData["StatusSortParam"]" class="text-decoration-none text-dark">
+                                    @Html.DisplayNameFor(model => model.Status)
+                                    <i class="fas fa-sort ms-1"></i>
+                                </a>
+                            </th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="fw-medium text-decoration-none">
+                                        #@item.OrderNumber
+                                    </a>
+                                </td>
+                                <td>@item.CustomerName</td>
+                                <td>@item.OrderDate.ToString("MMM dd, yyyy hh:mm tt")</td>
+                                <td>@Html.DisplayFor(modelItem => item.TotalAmount)</td>
+                                <td>
+                                    @{
+                                        var badgeClass = item.Status switch
+                                        {
+                                            ECommercePortfolio.Core.Entities.OrderStatus.Pending => "bg-warning",
+                                            ECommercePortfolio.Core.Entities.OrderStatus.Processing => "bg-info",
+                                            ECommercePortfolio.Core.Entities.OrderStatus.Shipped => "bg-primary",
+                                            ECommercePortfolio.Core.Entities.OrderStatus.Delivered => "bg-success",
+                                            ECommercePortfolio.Core.Entities.OrderStatus.Cancelled => "bg-danger",
+                                            _ => "bg-secondary"
+                                        };
+                                    }
+                                    <span class="badge @badgeClass">@item.Status</span>
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-outline-primary" data-bs-toggle="tooltip" title="View Details">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Manager")))
+                                        {
+                                            <a asp-area="Admin" asp-controller="Orders" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary" data-bs-toggle="tooltip" title="Edit Order">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                        }
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Orders pagination">
+                <ul class="pagination justify-content-end">
+                    @{
+                        var prevDisabled = !Model.Any() || ViewBag.CurrentPage == 1 ? "disabled" : "";
+                        var nextDisabled = !Model.Any() || ViewBag.CurrentPage == ViewBag.TotalPages ? "disabled" : "";
+                    }
+                    <li class="page-item @prevDisabled">
+                        <a class="page-link" asp-action="Index" asp-route-page="1" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-status="@ViewData["CurrentStatus"]" asp-route-sortOrder="@ViewData["CurrentSort"]">
+                            <i class="fas fa-angle-double-left"></i>
+                        </a>
+                    </li>
+                    <li class="page-item @prevDisabled">
+                        <a class="page-link" asp-action="Index" asp-route-page="@(ViewBag.CurrentPage - 1)" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-status="@ViewData["CurrentStatus"]" asp-route-sortOrder="@ViewData["CurrentSort"]">
+                            <i class="fas fa-angle-left"></i>
+                        </a>
+                    </li>
+
+                    @for (int i = Math.Max(1, ViewBag.CurrentPage - 2); i <= Math.Min(ViewBag.TotalPages, ViewBag.CurrentPage + 2); i++)
+                    {
+                        <li class="page-item @(i == ViewBag.CurrentPage ? "active" : "")">
+                            <a class="page-link" asp-action="Index" asp-route-page="@i" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-status="@ViewData["CurrentStatus"]" asp-route-sortOrder="@ViewData["CurrentSort"]">@i</a>
+                        </li>
+                    }
+
+                    <li class="page-item @nextDisabled">
+                        <a class="page-link" asp-action="Index" asp-route-page="@(ViewBag.CurrentPage + 1)" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-status="@ViewData["CurrentStatus"]" asp-route-sortOrder="@ViewData["CurrentSort"]">
+                            <i class="fas fa-angle-right"></i>
+                        </a>
+                    </li>
+                    <li class="page-item @nextDisabled">
+                        <a class="page-link" asp-action="Index" asp-route-page="@ViewBag.TotalPages" asp-route-searchString="@ViewData["CurrentFilter"]" asp-route-status="@ViewData["CurrentStatus"]" asp-route-sortOrder="@ViewData["CurrentSort"]">
+                            <i class="fas fa-angle-double-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Enable tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+
+        // Add animation to status badges
+        document.addEventListener('DOMContentLoaded', function() {
+            const badges = document.querySelectorAll('.badge');
+            badges.forEach(badge => {
+                badge.classList.add('animate__animated', 'animate__fadeIn');
+            });
+        });
+    </script>
+}

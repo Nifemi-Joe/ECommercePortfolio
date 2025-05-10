@@ -1,0 +1,460 @@
+```cshtml
+@model ECommercePortfolio.Web.Models.OrderViewModel
+@{
+    ViewData["Title"] = $"Order #{Model.OrderNumber}";
+}
+
+<div class="row mb-4">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="breadcrumb-item"><a asp-controller="Orders" asp-action="Index">Orders</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Order #@Model.OrderNumber</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12 col-xl-8">
+        <div class="card mb-4">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-box-open me-2"></i>Order Items
+                </h5>
+                @if (User.Identity.IsAuthenticated && (User.IsInRole("Admin") || User.IsInRole("Manager")))
+                {
+                    <div class="dropdown">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="orderActionsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-cog me-1"></i>Actions
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="orderActionsDropdown">
+                            <li>
+                                <a class="dropdown-item" asp-area="Admin" asp-controller="Orders" asp-action="Edit" asp-route-id="@Model.Id">
+                                    <i class="fas fa-edit me-2"></i>Edit Order
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#" onclick="printOrder(event)">
+                                    <i class="fas fa-print me-2"></i>Print Order
+                                </a>
+                            </li>
+                            @if (Model.Status != ECommercePortfolio.Core.Entities.OrderStatus.Cancelled)
+                            {
+                                <li>
+                                    <button type="button" class="dropdown-item text-danger" data-bs-toggle="modal" data-bs-target="#cancelOrderModal">
+                                        <i class="fas fa-times-circle me-2"></i>Cancel Order
+                                    </button>
+                                </li>
+                            }
+                        </ul>
+                    </div>
+                }
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Product</th>
+                                <th class="text-center">Quantity</th>
+                                <th class="text-end">Unit Price</th>
+                                <th class="text-end">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.OrderItems)
+                            {
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="bg-light rounded p-2 me-3">
+                                                <i class="fas fa-box text-primary"></i>
+                                            </div>
+                                            <div>
+                                                <h6 class="mb-0">
+                                                    <a asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductId" class="text-decoration-none">
+                                                        @item.ProductName
+                                                    </a>
+                                                </h6>
+                                                <small class="text-muted">ID: #@item.ProductId</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="text-center">@item.Quantity</td>
+                                    <td class="text-end">@Html.DisplayFor(modelItem => item.UnitPrice)</td>
+                                    <td class="text-end">@Html.DisplayFor(modelItem => item.Total)</td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot class="table-light">
+                            <tr>
+                                <td colspan="3" class="text-end fw-bold">Total Amount:</td>
+                                <td class="text-end fw-bold">@Html.DisplayFor(model => model.TotalAmount)</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Order Timeline -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-history me-2"></i>Order Timeline
+                </h5>
+            </div>
+            <div class="card-body pb-0">
+                <div class="order-timeline">
+                    <div class="timeline-item @(Model.Status >= ECommercePortfolio.Core.Entities.OrderStatus.Pending ? "active" : "")">
+                        <div class="timeline-point">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h6>Order Placed</h6>
+                            <p class="text-muted mb-0">@Model.OrderDate.ToString("MMM dd, yyyy hh:mm tt")</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item @(Model.Status >= ECommercePortfolio.Core.Entities.OrderStatus.Processing ? "active" : "")">
+                        <div class="timeline-point">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h6>Processing</h6>
+                            @if (Model.Status >= ECommercePortfolio.Core.Entities.OrderStatus.Processing)
+                            {
+                                <p class="text-muted mb-0">Order is being processed</p>
+                            }
+                            else
+                            {
+                                <p class="text-muted mb-0">Waiting for processing</p>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="timeline-item @(Model.Status >= ECommercePortfolio.Core.Entities.OrderStatus.Shipped ? "active" : "")">
+                        <div class="timeline-point">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="timeline-content">
+                            <h6>Shipped</h6>
+                            @if (Model.Status >= ECommercePortfolio.Core.Entities.OrderStatus.Shipped)
+                            {
+                                <p class="text-muted mb-0">Your order has been shipped</p>
+                            }
+                            else
+                            {
+                                <p class="text-muted mb-0">Waiting for shipment</p>
+                            }
+                        </div>
+                    </div>
+
+                    <div class="timeline-item @(Model.Status == ECommercePortfolio.Core.Entities.OrderStatus.Delivered ? "active" : "")
+                                              @(Model.Status == ECommercePortfolio.Core.Entities.OrderStatus.Cancelled ? "cancelled" : "")">
+                        <div class="timeline-point">
+                            @if (Model.Status == ECommercePortfolio.Core.Entities.OrderStatus.Cancelled)
+                            {
+                                <i class="fas fa-times"></i>
+                            }
+                            else
+                            {
+                                <i class="fas fa-check"></i>
+                            }
+                        </div>
+                        <div class="timeline-content">
+                            @if (Model.Status == ECommercePortfolio.Core.Entities.OrderStatus.Cancelled)
+                            {
+                                <h6>Cancelled</h6>
+                                <p class="text-muted mb-0">Order has been cancelled</p>
+                            }
+                            else
+                            {
+                                <h6>Delivered</h6>
+                                @if (Model.Status == ECommercePortfolio.Core.Entities.OrderStatus.Delivered)
+                                {
+                                    <p class="text-muted mb-0">Order has been delivered</p>
+                                }
+                                else
+                                {
+                                    <p class="text-muted mb-0">Waiting for delivery</p>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 col-xl-4">
+        <!-- Order Information Card -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-info-circle me-2"></i>Order Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="info-group">
+                    <div class="info-label">Order Number</div>
+                    <div class="info-value">#@Model.OrderNumber</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-label">Order Date</div>
+                    <div class="info-value">@Model.OrderDate.ToString("MMMM dd, yyyy")</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-label">Order Time</div>
+                    <div class="info-value">@Model.OrderDate.ToString("hh:mm tt")</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-label">Customer</div>
+                    <div class="info-value">@Model.CustomerName</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-label">Status</div>
+                    <div class="info-value">
+                        @{
+                            var badgeClass = Model.Status switch
+                            {
+                                ECommercePortfolio.Core.Entities.OrderStatus.Pending => "bg-warning",
+                                ECommercePortfolio.Core.Entities.OrderStatus.Processing => "bg-info",
+                                ECommercePortfolio.Core.Entities.OrderStatus.Shipped => "bg-primary",
+                                ECommercePortfolio.Core.Entities.OrderStatus.Delivered => "bg-success",
+                                ECommercePortfolio.Core.Entities.OrderStatus.Cancelled => "bg-danger",
+                                _ => "bg-secondary"
+                            };
+                        }
+                        <span class="badge @badgeClass">@Model.Status</span>
+                    </div>
+                </div>
+                <div class="info-group">
+                    <div class="info-label">Total Amount</div>
+                    <div class="info-value fw-bold">@Html.DisplayFor(model => model.TotalAmount)</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customer Information Card -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-user me-2"></i>Customer Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="avatar-circle me-3">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h6 class="mb-0">@Model.CustomerName</h6>
+                        <small class="text-muted">Customer</small>
+                    </div>
+                </div>
+                <div class="info-group">
+                    <div class="info-label">Email</div>
+                    <div class="info-value">customer@example.com</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-label">Phone</div>
+                    <div class="info-value">(555) 123-4567</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shipping Information Card -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-truck me-2"></i>Shipping Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="info-group">
+                    <div class="info-label">Address</div>
+                    <div class="info-value">123 Main Street, Apt 4B</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-label">City</div>
+                    <div class="info-value">New York</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-label">State/Province</div>
+                    <div class="info-value">NY</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-label">Postal Code</div>
+                    <div class="info-value">10001</div>
+                </div>
+                <div class="info-group">
+                    <div class="info-label">Country</div>
+                    <div class="info-value">United States</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cancel Order Modal -->
+<div class="modal fade" id="cancelOrderModal" tabindex="-1" aria-labelledby="cancelOrderModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="cancelOrderModalLabel">Cancel Order</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form asp-area="Admin" asp-controller="Orders" asp-action="Cancel" asp-route-id="@Model.Id" method="post">
+                <div class="modal-body">
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        Are you sure you want to cancel this order? This action cannot be undone.
+                    </div>
+                    <div class="mb-3">
+                        <label for="cancelReason" class="form-label">Reason for Cancellation</label>
+                        <textarea id="cancelReason" name="cancelReason" class="form-control" rows="3" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-danger">Cancel Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Styles {
+    <style>
+        /* Order timeline styles */
+        .order-timeline {
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 1.5rem;
+            top: 2.5rem;
+            bottom: -2rem;
+            width: 2px;
+            background-color: #e9ecef;
+            z-index: 1;
+        }
+
+        .timeline-item:last-child::before {
+            display: none;
+        }
+
+        .timeline-point {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: #f8f9fa;
+            border: 2px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .timeline-point i {
+            color: #6c757d;
+        }
+
+        .timeline-content {
+            flex-grow: 1;
+            padding-top: 0.5rem;
+        }
+
+        .timeline-item.active .timeline-point {
+            background-color: #e8f4fe;
+            border-color: #0d6efd;
+        }
+
+        .timeline-item.active .timeline-point i {
+            color: #0d6efd;
+        }
+
+        .timeline-item.cancelled .timeline-point {
+            background-color: #feeded;
+            border-color: #dc3545;
+        }
+
+        .timeline-item.cancelled .timeline-point i {
+            color: #dc3545;
+        }
+
+        /* Info group styles */
+        .info-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .info-group:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .info-label {
+            color: #6c757d;
+            font-size: 0.875rem;
+        }
+
+        .info-value {
+            font-size: 0.875rem;
+            text-align: right;
+        }
+
+        /* Avatar styles */
+        .avatar-circle {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 1.25rem;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        function printOrder(e) {
+            e.preventDefault();
+            window.print();
+        }
+
+        // Add some animation to the timeline
+        document.addEventListener('DOMContentLoaded', function() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+
+            timelineItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('animate__animated', 'animate__fadeInLeft');
+                }, index * 200);
+            });
+        });
+    </script>
+}
+```

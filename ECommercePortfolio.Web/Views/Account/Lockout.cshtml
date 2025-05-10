@@ -1,0 +1,76 @@
+@{
+    ViewData["Title"] = "Account Lockout";
+    Layout = "_Layout";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg border-0 rounded-lg mt-5 auth-card">
+            <div class="card-header auth-header bg-warning text-dark">
+                <h3 class="text-center font-weight-bold my-4">
+                    <i class="fas fa-lock me-2"></i>Account Locked
+                </h3>
+            </div>
+            <div class="card-body text-center">
+                <div class="lockout-icon mb-4 animate__animated animate__shakeX">
+                    <i class="fas fa-user-lock fa-4x text-warning"></i>
+                </div>
+
+                <p class="mb-4 animate__animated animate__fadeIn animate__delay-1s">
+                    This account has been locked out due to multiple failed login attempts.
+                    Please try again later or contact support for assistance.
+                </p>
+
+                <div class="lockout-timer mb-4 animate__animated animate__fadeIn animate__delay-2s">
+                    <p class="text-muted">Your account will be automatically unlocked in</p>
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="timer-card me-2">
+                            <span id="minutes">15</span>
+                        </div>
+                        <span class="timer-divider">:</span>
+                        <div class="timer-card ms-2">
+                            <span id="seconds">00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 animate__animated animate__fadeIn animate__delay-3s">
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-primary btn-lg">
+                        <i class="fas fa-home me-2"></i>Return to Home
+                    </a>
+                </div>
+            </div>
+            <div class="card-footer text-center py-3">
+                <div class="small">
+                    <a href="mailto:support@example.com">
+                        <i class="fas fa-envelope me-1"></i>Contact Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Countdown timer logic
+        document.addEventListener('DOMContentLoaded', function() {
+            let duration = 15 * 60; // 15 minutes in seconds
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            const timer = setInterval(function() {
+                const minutes = Math.floor(duration / 60);
+                const seconds = duration % 60;
+
+                minutesEl.textContent = minutes.toString().padStart(2, '0');
+                secondsEl.textContent = seconds.toString().padStart(2, '0');
+
+                if (--duration < 0) {
+                    clearInterval(timer);
+                    window.location.href = '@Url.Action("Login", "Account")';
+                }
+            }, 1000);
+        });
+    </script>
+}

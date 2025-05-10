@@ -123,7 +123,7 @@ namespace ECommercePortfolio.Infrastructure.Data
                         Price = 699.99m,
                         StockQuantity = 100,
                         CategoryId = categories[0].Id,
-                        ImageUrl = "/images/products/smartphone.jpg"
+                        ImageUrl = ""
                     },
                     new Product {
                         Name = "Laptop",
@@ -131,7 +131,7 @@ namespace ECommercePortfolio.Infrastructure.Data
                         Price = 1299.99m,
                         StockQuantity = 50,
                         CategoryId = categories[0].Id,
-                        ImageUrl = "/images/products/laptop.jpg"
+                        ImageUrl = ""
                     },
                     new Product {
                         Name = "T-Shirt",
@@ -139,7 +139,7 @@ namespace ECommercePortfolio.Infrastructure.Data
                         Price = 19.99m,
                         StockQuantity = 200,
                         CategoryId = categories[1].Id,
-                        ImageUrl = "/images/products/tshirt.jpg"
+                        ImageUrl = ""
                     },
                     new Product {
                         Name = "Coffee Maker",
@@ -147,7 +147,7 @@ namespace ECommercePortfolio.Infrastructure.Data
                         Price = 89.99m,
                         StockQuantity = 75,
                         CategoryId = categories[2].Id,
-                        ImageUrl = "/images/products/coffeemaker.jpg"
+                        ImageUrl = ""
                     },
                     new Product {
                         Name = "Novel",
@@ -155,7 +155,7 @@ namespace ECommercePortfolio.Infrastructure.Data
                         Price = 24.99m,
                         StockQuantity = 150,
                         CategoryId = categories[3].Id,
-                        ImageUrl = "/images/products/novel.jpg"
+                        ImageUrl = ""
                     },
                     new Product {
                         Name = "Yoga Mat",
@@ -163,7 +163,7 @@ namespace ECommercePortfolio.Infrastructure.Data
                         Price = 29.99m,
                         StockQuantity = 100,
                         CategoryId = categories[4].Id,
-                        ImageUrl = "/images/products/yogamat.jpg"
+                        ImageUrl = ""
                     }
                 };
 

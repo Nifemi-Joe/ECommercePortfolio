@@ -1,91 +1,346 @@
-<!-- ECommercePortfolio.Web/Views/Shared/_Layout.cshtml -->
+@* ECommercePortfolio.Web/Views/Shared/_Layout.cshtml *@
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - E-Commerce Dashboard</title>
+
+    <!-- CSS Libraries -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/lib/font-awesome/css/all.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!-- Add page-specific CSS in RenderSection -->
+    @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">E-Commerce Dashboard</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Products" asp-action="Index">Products</a>
-                        </li>
-                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link" asp-area="Admin" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Management
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Products" asp-action="Index">Products</a>
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Categories" asp-action="Index">Categories</a>
-                                    <a class="dropdown-item" asp-area="Admin" asp-controller="Orders" asp-action="Index">Orders</a>
-                                    @if (User.IsInRole("Admin"))
-                                    {
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Users" asp-action="Index">Users</a>
-                                    }
-                                </div>
-                            </li>
-                        }
-                    </ul>
-                    <partial name="_LoginPartial" />
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @if (TempData["SuccessMessage"] != null)
-            {
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    @TempData["SuccessMessage"]
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            }
-            @if (TempData["ErrorMessage"] != null)
-            {
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    @TempData["ErrorMessage"]
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            }
-            @RenderBody()
-        </main>
+    <!-- Loading overlay -->
+    <div class="loading-overlay" style="display: none">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; @DateTime.Now.Year - E-Commerce Dashboard - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a asp-controller="Home" asp-action="Index" class="brand-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>E-Commerce</span>
+                </a>
+                <button id="closeSidebarBtn" class="btn-close-sidebar d-block d-lg-none">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="sidebar-content">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-item">
+                        <a class="sidebar-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["Action"]?.ToString() == "Index" ? "active" : "")"
+                           asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-home"></i> <span>Home</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Products" ? "active" : "")"
+                           asp-controller="Products" asp-action="Index">
+                            <i class="fas fa-box"></i> <span>Products</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Categories" ? "active" : "")"
+                           asp-controller="Categories" asp-action="Index">
+                            <i class="fas fa-tags"></i> <span>Categories</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link @(ViewContext.RouteData.Values["Controller"]?.ToString() == "Orders" ? "active" : "")"
+                           asp-controller="Orders" asp-action="Index">
+                            <i class="fas fa-shopping-bag"></i> <span>Orders</span>
+                        </a>
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+                        {
+                            <li class="sidebar-header">Admin Panel</li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link @(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Dashboard" ? "active" : "")"
+                                   asp-area="Admin" asp-controller="Dashboard" asp-action="Index">
+                                    <i class="fas fa-tachometer-alt"></i> <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link @(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Reports" ? "active" : "")"
+                                   asp-area="Admin" asp-controller="Reports" asp-action="Index">
+                                    <i class="fas fa-chart-bar"></i> <span>Reports</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-header">Management</li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link @(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Products" ? "active" : "")"
+                                   asp-area="Admin" asp-controller="Products" asp-action="Index">
+                                    <i class="fas fa-boxes"></i> <span>Manage Products</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link @(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Categories" ? "active" : "")"
+                                   asp-area="Admin" asp-controller="Categories" asp-action="Index">
+                                    <i class="fas fa-tags"></i> <span>Manage Categories</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link @(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Orders" ? "active" : "")"
+                                   asp-area="Admin" asp-controller="Orders" asp-action="Index">
+                                    <i class="fas fa-shopping-bag"></i> <span>Manage Orders</span>
+                                </a>
+                            </li>
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link @(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Users" ? "active" : "")"
+                                       asp-area="Admin" asp-controller="Users" asp-action="Index">
+                                        <i class="fas fa-users"></i> <span>Users</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link @(ViewContext.RouteData.Values["Area"]?.ToString() == "Admin" && ViewContext.RouteData.Values["Controller"]?.ToString() == "Settings" ? "active" : "")"
+                                       asp-area="Admin" asp-controller="Settings" asp-action="Index">
+                                        <i class="fas fa-cog"></i> <span>Settings</span>
+                                    </a>
+                                </li>
+                            }
+                        }
+                    }
+                    else
+                    {
+                        <li class="sidebar-item not-logged-in">
+                            <div class="sidebar-message">
+                                <i class="fas fa-lock"></i>
+                                <p>Please log in to access dashboard features</p>
+                                <a class="btn btn-primary btn-sm" asp-controller="Account" asp-action="Login">Login</a>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <span>&copy; @DateTime.Now.Year - E-Commerce</span>
+            </div>
         </div>
-    </footer>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Navbar -->
+            <nav class="top-navbar">
+                <div class="navbar-left">
+                    <button id="sidebarToggleBtn" class="sidebar-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 class="page-title">@ViewData["Title"]</h1>
+                </div>
+                <div class="navbar-right">
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        <div class="user-menu-dropdown">
+                                            <button class="user-icon-btn" id="userDropdownBtn" aria-label="User menu">
+                                                <div class="user-avatar-circle">
+                                                    <i class="fas fa-user"></i>
+                                                </div>
+                                            </button>
+                                            <div class="user-dropdown-menu" id="userDropdownMenu">
+                                                <div class="dropdown-arrow"></div>
+                                                <div class="user-dropdown-header">
+                                                    <div class="user-avatar-lg">
+                                                        <i class="fas fa-user"></i>
+                                                    </div>
+                                                    <div class="user-info">
+                                                        <h6>@User.Identity.Name</h6>
+                                                        <span>@(User.IsInRole("Admin") ? "Administrator" : User.IsInRole("Manager") ? "Manager" : "User")</span>
+                                                    </div>
+                                                </div>
+                                                <div class="user-dropdown-body">
+                                                    <a class="dropdown-menu-item" asp-controller="Account" asp-action="Profile">
+                                                        <i class="fas fa-user-circle"></i>
+                                                        <span>Profile Settings</span>
+                                                    </a>
+                                                    <a class="dropdown-menu-item" asp-controller="Account" asp-action="ChangePassword">
+                                                        <i class="fas fa-key"></i>
+                                                        <span>Change Password</span>
+                                                    </a>
+                                                    @if (User.IsInRole("Admin"))
+                                                    {
+                                                        <a class="dropdown-menu-item" asp-area="Admin" asp-controller="Settings" asp-action="Index">
+                                                            <i class="fas fa-cog"></i>
+                                                            <span>System Settings</span>
+                                                        </a>
+                                                    }
+                                                    <div class="dropdown-divider"></div>
+                                                    <form asp-controller="Account" asp-action="Logout" method="post">
+                                                        <button type="submit" class="dropdown-menu-item text-danger">
+                                                            <i class="fas fa-sign-out-alt"></i>
+                                                            <span>Logout</span>
+                                                        </button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="d-flex">
+                                            <a asp-controller="Account" asp-action="Login" class="btn btn-outline-light me-2">Login</a>
+                                            <a asp-controller="Account" asp-action="Register" class="btn btn-primary">Register</a>
+                                        </div>
+                                    }
+                                     </div>
+            </nav>
+
+            <!-- Content Area -->
+            <div class="content-wrapper">
+                @if (TempData["SuccessMessage"] != null)
+                {
+                    <div class="alert alert-success alert-dismissible fade show animate__animated animate__fadeIn" role="alert">
+                        <i class="fas fa-check-circle me-2"></i> @TempData["SuccessMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                @if (TempData["ErrorMessage"] != null)
+                {
+                    <div class="alert alert-danger alert-dismissible fade show animate__animated animate__fadeIn" role="alert">
+                        <i class="fas fa-exclamation-circle me-2"></i> @TempData["ErrorMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                @if (TempData["WarningMessage"] != null)
+                {
+                    <div class="alert alert-warning alert-dismissible fade show animate__animated animate__fadeIn" role="alert">
+                        <i class="fas fa-exclamation-triangle me-2"></i> @TempData["WarningMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                @if (TempData["InfoMessage"] != null)
+                {
+                    <div class="alert alert-info alert-dismissible fade show animate__animated animate__fadeIn" role="alert">
+                        <i class="fas fa-info-circle me-2"></i> @TempData["InfoMessage"]
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                @RenderBody()
+            </div>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <p class="mb-0">&copy; @DateTime.Now.Year - E-Commerce Dashboard</p>
+                        </div>
+                        <div>
+                            <a href="#" class="text-muted me-3">Privacy Policy</a>
+                            <a href="#" class="text-muted me-3">Terms of Service</a>
+                            <a href="#" class="text-muted">Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/lib/chart.js/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <!-- Add page-specific scripts in RenderSection -->
     @await RenderSectionAsync("Scripts", required: false)
+
+    <script>
+        // Initialize dropdowns
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sidebar toggle functionality
+            const sidebarToggleBtn = document.getElementById('sidebarToggleBtn');
+            const closeSidebarBtn = document.getElementById('closeSidebarBtn');
+            const sidebar = document.getElementById('sidebar');
+            const appContainer = document.querySelector('.app-container');
+
+            if (sidebarToggleBtn) {
+                sidebarToggleBtn.addEventListener('click', function() {
+                    appContainer.classList.toggle('sidebar-collapsed');
+                });
+            }
+
+            if (closeSidebarBtn) {
+                closeSidebarBtn.addEventListener('click', function() {
+                    appContainer.classList.add('sidebar-collapsed');
+                });
+            }
+             // User dropdown functionality
+                        const userDropdownBtn = document.getElementById('userDropdownBtn');
+                        const userDropdownMenu = document.getElementById('userDropdownMenu');
+
+                        if (userDropdownBtn && userDropdownMenu) {
+                            // Toggle dropdown on icon click
+                            userDropdownBtn.addEventListener('click', function(e) {
+                                e.stopPropagation();
+
+                                // Add animation class to show dropdown
+                                if (userDropdownMenu.classList.contains('show')) {
+                                    hideUserDropdown();
+                                } else {
+                                    showUserDropdown();
+                                }
+                            });
+
+                            // Function to show user dropdown with animation
+                            function showUserDropdown() {
+                                userDropdownMenu.classList.add('animate__animated', 'animate__fadeIn', 'show');
+                                userDropdownMenu.style.display = 'block';
+                                setTimeout(() => {
+                                    userDropdownMenu.classList.remove('animate__fadeIn');
+                                }, 300);
+                            }
+
+                            // Function to hide user dropdown with animation
+                            function hideUserDropdown() {
+                                userDropdownMenu.classList.add('animate__fadeOut');
+                                setTimeout(() => {
+                                    userDropdownMenu.classList.remove('animate__animated', 'animate__fadeOut', 'show');
+                                    userDropdownMenu.style.display = 'none';
+                                }, 300);
+                            }
+
+                            // Close dropdown when clicking outside
+                            document.addEventListener('click', function(e) {
+                                if (userDropdownMenu.classList.contains('show') &&
+                                    !userDropdownBtn.contains(e.target) &&
+                                    !userDropdownMenu.contains(e.target)) {
+                                    hideUserDropdown();
+                                }
+                            });
+                        }
+
+            // Close sidebar on small screens when clicking outside
+            document.addEventListener('click', function(event) {
+                const isSmallScreen = window.innerWidth < 992;
+                if (isSmallScreen && !sidebar.contains(event.target) && !sidebarToggleBtn.contains(event.target)) {
+                    appContainer.classList.add('sidebar-collapsed');
+                }
+            });
+
+            // Initialize Bootstrap tooltips
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
+        });
+    </script>
 </body>
 </html>
